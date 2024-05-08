@@ -3,7 +3,7 @@
     include 'includes/_head.php';
 
     if(isset($_GET['roomId'])) {
-        
+
         $api_url = $config['SERVER_HOST'] . '/rooms/' . $_GET['roomId'];
 
         $ch = curl_init($api_url);

@@ -53,7 +53,78 @@
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
+
+        $('form.reset-password-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser 
+            var form = $(this);
+            var token = "<?php echo isset($_GET['token']) ? $_GET['token'] : null ?>";
+
+            var pass = $('#password').val();
+            var confPass = $('#confirmPassword').val();
+
+            if (pass != confPass) {
+                $('#error-handler').html('<p class="error">Password not match.</p>');
+                return false;
+            }
+
+            $.ajax({
+                type: "PATCH",
+                url: "<?php echo $config['SERVER_HOST'] . '/tenants/reset-password' ?>",
+                data: {
+                    token: token,
+                    newPassword: pass
+                },
+                dataType: "json",
+            }).done(function (data) {
+                $('#error-handler').html('<p class="success">Please check your email to reset your password. Thank you!</p>');
+            }).fail(function (err) {
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
     });
+
+    function showPassword(elementId) {
+        var currentType = $("#" + elementId).attr("type");
+        if (currentType === "password") {
+            $("#" + elementId).attr("type", "text");
+        } else {
+            $("#" + elementId).attr("type", "password");
+        }
+    }
+
+    function checkPasswordStrength(password) {
+
+        var passwordStatus = "(weak)";
+
+        // Min and max length for password
+        var minLength = 8;
+        var maxLength = 20;
+
+        // Check length
+        if (password.length < minLength || password.length > maxLength) {
+            passwordStatus = "(weak)";
+            $('#passwordStatus').addClass("font-danger");
+        }
+
+
+        var uppercaseRegex = /[A-Z]/;
+        var lowercaseRegex = /[a-z]/;
+        var numberRegex = /[0-9]/;
+        var specialCharRegex = /[^A-Za-z0-9]/;
+
+        if (uppercaseRegex.test(password) && lowercaseRegex.test(password) && numberRegex.test(password) && specialCharRegex.test(password)) {
+            passwordStatus = "(strong)";
+            $('#passwordStatus').addClass("font-success");
+        } else if ((uppercaseRegex.test(password) && lowercaseRegex.test(password)) || (uppercaseRegex.test(password) && numberRegex.test(password)) || (uppercaseRegex.test(password) && specialCharRegex.test(password)) || (lowercaseRegex.test(password) && numberRegex.test(password)) || (lowercaseRegex.test(password) && specialCharRegex.test(password)) || (numberRegex.test(password) && specialCharRegex.test(password))) {
+            passwordStatus = "(medium)";
+            $('#passwordStatus').addClass("font-info");
+        } else {
+            passwordStatus = "(weak)";
+            $('#passwordStatus').addClass("font-danger");
+        }
+
+        $('#passwordStatus').text(passwordStatus);
+    }
 </script>
 
 <!-- Google Tag Manager (noscript) -->

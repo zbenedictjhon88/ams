@@ -66,14 +66,21 @@
                                         <label for="Contact" class="required">Contact Number:</label>
                                         <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="11" required>
 
-                                        <label for="address" class="required">Address:</label>
-                                        <input type="text" id="region" name="addressBefore"  >
-
                                         <label for="email" class="required">Email:</label>
                                         <input type="text" id="email" name="email"  required>
 
-                                        <label for="password" class="required">Password:</label>
-                                        <input class="form-inputs" type="password"  id="pwd"  name="password" required>
+                                        <label for="password" class="required">Password: <span id="passwordStatus"></span></label>
+                                        <div class="input-group custom">
+                                            <input onkeyup="checkPasswordStrength(this.value)" type="password" class="form-control form-control-lg" name="password" required id="password"> 
+                                            <span onclick="showPassword('password');" class="input-group-text"><i class="dw dw-eye"></i></span>
+                                        </div>                                      
+
+                                        <label for="password" class="required">Confirm Password:</label>
+                                        <div class="input-group custom">
+                                            <input type="password" class="form-control form-control-lg" required id="confirmPassword"> 
+                                            <span onclick="showPassword('confirmPassword');" class="input-group-text"><i class="dw dw-eye"></i></span>
+                                        </div>
+
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Sign-up</button>
                                 </form>

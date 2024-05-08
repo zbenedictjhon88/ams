@@ -1,4 +1,12 @@
-
+.font-danger {
+    color: red;
+}
+.font-info {
+    color:blue;
+}
+.font-success {
+    color:green;
+}
 
 .admin_tenant{
     display: flex;

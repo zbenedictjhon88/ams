@@ -62,14 +62,11 @@
                                         <label for="Contact" class="required">Contact Number:</label>
                                         <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="11" value="<?= $data['contact'] ?>" required>
 
-                                        <label for="address" class="required">Address:</label>
-                                        <input type="text" id="region" name="addressBefore" value="<?= $data['addressBefore'] ?>">
-
                                         <label for="email" class="required">Email:</label>
                                         <input type="text" id="email" name="email" value="<?= $data['email'] ?>" required>
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Update</button>
-                                     <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">BACK</a>
+                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">BACK</a>
                                 </form>
                             </div>
                         </div>
