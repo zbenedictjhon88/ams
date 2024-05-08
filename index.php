@@ -39,8 +39,8 @@
                                     </div>
                                 </div>
                                 <div class="input-group custom">
-                                    <input type="password" class="form-control form-control-lg" placeholder="Enter password." name="password"> 
-                                    <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+                                    <input type="password" class="form-control form-control-lg" placeholder="Enter password." name="password" id="password"> 
+                                    <span onclick="showPassword('password');" class="input-group-text"><i class="dw dw-eye"></i></span>
                                 </div>
 
                                 <div class="row pb-30">
