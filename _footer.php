@@ -76,7 +76,7 @@
                 },
                 dataType: "json",
             }).done(function (data) {
-                $('#error-handler').html('<p class="success">Please check your email to reset your password. Thank you!</p>');
+                $('#error-handler').html('<p class="success">Password successfully updated.</p>');
             }).fail(function (err) {
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
