@@ -191,7 +191,7 @@
             }
         }
     }
-    roomEdit();
+    //roomEdit();
 
     function setSessionRedirect(variable, value, link) {
         sessionStorage.setItem(variable, value);

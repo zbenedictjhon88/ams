@@ -43,8 +43,8 @@
                                     <table id="dt" class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Room Code</th>
-                                                <th>Building Code</th>
+                                                <th>Room No</th>
+                                                <th>Room Type</th>
                                                 <th>Rate Per Month</th>
                                                 <th>Status</th>
                                                 <th>Action</th>

@@ -44,41 +44,19 @@
                                     <div id="error-handler"></div>
 
                                     <fieldset>
-                                        <label class="required"><span></span>Room Code:</label>
+                                        <label class="required"><span></span>Room No:</label>
                                         <input type="text" name="roomCode" placeholder="Room Code" required>
 
-                                        <label class="required"><span></span>Building Code:</label>
-                                        <input type="text" name="buildingCode" placeholder="Building Code" required>
-
-                                        <label class="required">With Kitchen?:</label>
-                                        <div class="gender-selection" required>
-                                            <input type="radio"  name="hasKitchen" value="0" selected>
-                                            <label for="male">No</label>
-                                            <input type="radio"  name="hasKitchen" value="1">
-                                            <label for="female">Yes</label>
-                                        </div>
-                                        <br />
-
-                                        <label class="required"><span></span>Max Tenant Capacity:</label>
-                                        <input type="text" name="maxTenantCapacity" placeholder="Max Tenant Capacity" required>
-
-                                        <label class="required"><span></span>Number Of Bedrooms:</label>
-                                        <input type="text" name="numberOfBedrooms" placeholder="Number Of Bedrooms" required>
-
-                                        <label class="required"><span></span>Number Of Floors:</label>
-                                        <input type="text" name="numberOfFloors" placeholder="Number Of Floors" required>
+                                        <label class="required"><span></span>Room Type:</label>
+                                        <select name="buildingCode" class="form-control" required>
+                                            <option title="Typically consists of a separate bedroom, a living area, kitchen, and bathroom." value="One-Bedroom Apartment">One-Bedroom Apartment</option>
+                                            <option title="Offers two separate bedrooms along with a living area, kitchen, and bathroom." value="Two-Bedroom Apartment">Two-Bedroom Apartment</option>
+                                            <option title="Multi-level units with two or three floors, offering more space and separation." value="Duplex/Triplex Apartment">Duplex/Triplex Apartment</option>
+                                        </select>
 
                                         <label class="required"><span></span>Rate Per Month:</label>
                                         <input type="text" name="ratePerMonth" placeholder="Rate Per Month" required>
 
-                                        <label class="required">With Bathroom Comfort Room?:</label>
-                                        <div class="gender-selection" required>
-                                            <input type="radio"  name="hasBathroomComfortRoom" value="0">
-                                            <label for="male">No</label>
-                                            <input type="radio"  name="hasBathroomComfortRoom" value="1">
-                                            <label for="female">Yes</label>
-                                        </div>
-                                        <!--<br />-->
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Add</button>
                                 </form>
