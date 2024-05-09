@@ -61,7 +61,7 @@
                                         <input type="text" id="mid_name" name="middleName" placeholder="Middle name (Optional)" value="<?= $data['middleName'] ?>">
 
                                         <label for="Contact" class="required">Contact Number:</label>
-                                        <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="11" value="<?= $data['contact'] ?>" required>
+                                        <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="10" value="<?= $data['contact'] ?>" required>
 
                                         <label for="email" class="required">Email:</label>
                                         <input type="text" id="email" name="email" value="<?= $data['email'] ?>" required>

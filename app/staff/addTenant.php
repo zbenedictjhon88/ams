@@ -64,7 +64,7 @@
                                         <br>
 
                                         <label for="Contact" class="required">Contact Number:</label>
-                                        <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="11" required>
+                                        <input type="tel" name="contact" id="cnum" placeholder="+63" maxLegnth="10" required>
 
                                         <label for="email" class="required">Email:</label>
                                         <input type="text" id="email" name="email"  required>
