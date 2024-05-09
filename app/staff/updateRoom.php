@@ -28,7 +28,8 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="">Room Management</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Update Room
                                     </li>
@@ -43,6 +44,13 @@
                                     <br>
 
                                     <div id="error-handler"></div>
+
+                                    <?php
+                                        $apiUrl = $config['SERVER_HOST'] . '/rooms/' . $_GET['roomId'];
+                                        $response = file_get_contents($apiUrl);
+                                        $data = json_decode($response, true);
+//                                        print_r($data)
+                                    ?>
 
                                     <fieldset>
                                         <!--<input id="room_id" type="hidden" value="<?php echo $_GET['room_id'] ?>" />-->
@@ -72,30 +80,25 @@
                                         <input type="text" name="numberOfFloors" placeholder="Number Of Floors" required>
 
                                         <label class="required"><span></span>Rate Per Month:</label>
-                                        <input type="text" name="ratePerMonth" placeholder="Rate Per Month" required>
+                                        <input type="text" name="ratePerMonth" placeholder="Rate Per Month" value="<?= $data['ratePerMonth'] ?>" required>
 
-                                        <label class="required">With Bathroom Comfort Room?:</label>
-                                        <div class="gender-selection" required>
-                                            <input type="radio"  name="hasBathroomComfortRoom" value="0">
-                                            <label for="male">No</label>
-                                            <input type="radio"  name="hasBathroomComfortRoom" value="1">
-                                            <label for="female">Yes</label>
-                                        </div>
-                                        <br />
 
-                                        <label class="required"><span></span>Assign To(Tenant):</label>
-                                        <select class="form-control" onchange="assignTo(this.value);">
-                                            <option>Choose One</option>
-                                            <?php
-                                                $apiUrl = $config['SERVER_HOST'] . '/tenants';
-                                                $response = file_get_contents($apiUrl);
-                                                $data = json_decode($response, true);
-                                                for($i = 0; $i < count($data); $i++) {
+                                        
+                                        <?php if(!isset($data['assignedTo'])): ?>
+                                                <label class="required"><span></span>Assign To(Tenant):</label>
+                                                <select class="form-control" onchange="assignTo(this.value);">
+                                                    <option>Choose One</option>
+                                                    <?php
+                                                    $apiUrl = $config['SERVER_HOST'] . '/tenants';
+                                                    $response = file_get_contents($apiUrl);
+                                                    $data = json_decode($response, true);
+                                                    for($i = 0; $i < count($data); $i++) {
 
-                                                    echo '<option value="' . $data[$i]['id'] . '">' . $data[$i]['firstName'] . ' ' . $data[$i]['lastName'] . '</option>';
-                                                }
-                                            ?>
-                                        </select>
+                                                        echo '<option value="' . $data[$i]['id'] . '">' . $data[$i]['firstName'] . ' ' . $data[$i]['lastName'] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            <?php endif; ?>
 
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Update</button>

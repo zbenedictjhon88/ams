@@ -28,7 +28,7 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                                   <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Tenant List
                                     </li>
@@ -64,8 +64,8 @@
                                                     . '<td>' . $data[$i]['email'] . '</td>'
                                                     . '<td>' . $data[$i]['contact'] . '</td>'
                                                     . '<td>'
-                                                    . '<a href="' . $config['BASED_URL'] . '/app/staff/updateTenant.php?tenantId=' . $data[$i]['id'] . '">Update</a> '
-                                                    . '<a href="' . $config['BASED_URL'] . '/app/staff/deleteTenant.php?tenantId=' . $data[$i]['id'] . '">Update</a>'
+                                                    . '<a class="btn btn-info btn-sm" href="' . $config['BASED_URL'] . '/app/staff/updateTenant.php?tenantId=' . $data[$i]['id'] . '"><i class="fa fa-edit"></i></a> '
+                                                    . '<a class="btn btn-danger btn-sm" href="' . $config['BASED_URL'] . '/app/staff/deleteTenant.php?tenantId=' . $data[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
                                                     . '</td>'
                                                     . '</tr>';
                                                 }

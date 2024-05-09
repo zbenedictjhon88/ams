@@ -28,7 +28,7 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                                   <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Room Management
                                     </li>
@@ -56,15 +56,15 @@
                                                 $response = file_get_contents($apiUrl);
                                                 $data = json_decode($response, true);
                                                 for($i = 0; $i < count($data); $i++) {
-                                                    $data[$i]['isOccupied'] = $data[$i]['isOccupied'] == false ? 'Vacant' : 'Occupied';
+                                                    $data[$i]['isOccupied'] = $data[$i]['isOccupied'] == false ? '<span class="alert alert-success">Vacant</span>' : '<span class="alert alert-danger">Occupied</span>';
                                                     echo '<tr>'
                                                     . '<td>' . $data[$i]['roomCode'] . '</td>'
                                                     . '<td>' . $data[$i]['buildingCode'] . '</td>'
                                                     . '<td>' . $data[$i]['ratePerMonth'] . '</td>'
                                                     . '<td>' . $data[$i]['isOccupied'] . '</td>'
                                                     . '<td>'
-                                                    . '<a href="' . $config['BASED_URL'] . '/app/staff/updateRoom.php?roomId=' . $data[$i]['id'] . '">Update</a> '
-                                                    . '<a href="' . $config['BASED_URL'] . '/app/staff/deleteRoom.php?roomId=' . $data[$i]['id'] . '">Delete</a>'
+                                                    . '<a class="btn btn-info btn-sm" href="' . $config['BASED_URL'] . '/app/staff/updateRoom.php?roomId=' . $data[$i]['id'] . '"><i class="fa fa-edit"></i></a> '
+                                                    . '<a class="btn btn-danger btn-sm" href="' . $config['BASED_URL'] . '/app/staff/deleteRoom.php?roomId=' . $data[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
                                                     . '</td>'
                                                     . '</tr>';
                                                 }
