@@ -58,21 +58,21 @@
                                         <input type="text" name="roomCode" placeholder="Room Code" value="<?= $data['roomCode'] ?>" required>
 
                                         <label class="required"><span></span>Room Type:</label>
-                                        <select name="buildingCode" class="form-control" required>
+                                        <select name="roomType" class="form-control" required>
                                             <option 
                                                 title="Typically consists of a separate bedroom, a living area, kitchen, and bathroom." 
                                                 value="One-Bedroom Apartment"
-                                                <?php echo $data['buildingCode'] == 'One-Bedroom Apartment' ? 'selected="selected"' : '' ?>
+                                                <?php echo $data['roomType'] == 'One-Bedroom Apartment' ? 'selected="selected"' : '' ?>
                                                 >One-Bedroom Apartment  </option>
                                             <option 
                                                 title="Offers two separate bedrooms along with a living area, kitchen, and bathroom." 
                                                 value="Two-Bedroom Apartment"
-                                                <?php echo $data['buildingCode'] == 'Two-Bedroom Apartment' ? 'selected="selected"' : '' ?>
+                                                <?php echo $data['roomType'] == 'Two-Bedroom Apartment' ? 'selected="selected"' : '' ?>
                                                 >Two-Bedroom Apartment</option>
                                             <option 
                                                 title="Multi-level units with two or three floors, offering more space and separation." 
                                                 value="Duplex/Triplex Apartment"
-                                                <?php echo $data['buildingCode'] == 'Duplex/Triplex Apartment' ? 'selected="selected"' : '' ?>
+                                                <?php echo $data['roomType'] == 'Duplex/Triplex Apartment' ? 'selected="selected"' : '' ?>
                                                 >Duplex/Triplex Apartment</option>
                                         </select>
 

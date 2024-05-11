@@ -48,7 +48,7 @@
                                         <input type="text" name="roomCode" placeholder="Room Code" required>
 
                                         <label class="required"><span></span>Room Type:</label>
-                                        <select name="buildingCode" class="form-control" required>
+                                        <select name="roomType" class="form-control" required>
                                             <option title="Typically consists of a separate bedroom, a living area, kitchen, and bathroom." value="One-Bedroom Apartment">One-Bedroom Apartment</option>
                                             <option title="Offers two separate bedrooms along with a living area, kitchen, and bathroom." value="Two-Bedroom Apartment">Two-Bedroom Apartment</option>
                                             <option title="Multi-level units with two or three floors, offering more space and separation." value="Duplex/Triplex Apartment">Duplex/Triplex Apartment</option>

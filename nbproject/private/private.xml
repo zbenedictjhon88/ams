@@ -3,17 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/laragon/www/ams/resetPassword.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/deleteRoom.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/updateRoom.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/addRoom.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/includes/_footer.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/dashboard.php</file>
-            <file>file:/C:/laragon/www/ams/assets/css/main.css</file>
             <file>file:/C:/laragon/www/ams/login.php</file>
-            <file>file:/C:/laragon/www/ams/index.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/rooms.php</file>
             <file>file:/C:/laragon/www/ams/_footer.php</file>
             <file>file:/C:/laragon/www/ams/config.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/deleteTenant.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/tenants.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/addTenant.php</file>
+            <file>file:/C:/laragon/www/ams/resetPassword.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/updateTenant.php</file>
+            <file>file:/C:/laragon/www/ams/assets/css/main.css</file>
+            <file>file:/C:/laragon/www/ams/app/staff/includes/_sideBar.php</file>
+            <file>file:/C:/laragon/www/ams/index.php</file>
         </group>
     </open-files>
 </project-private>

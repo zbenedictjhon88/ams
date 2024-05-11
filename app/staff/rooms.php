@@ -5,7 +5,7 @@
     </head>
     <body>
         <!--Pre loader-->
-        <?php include 'includes/_preLoader.php'; ?>
+        <?php // include 'includes/_preLoader.php'; ?>
 
         <!--Header-->
         <?php include 'includes/_header.php'; ?>
@@ -28,7 +28,7 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                   <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Room Management
                                     </li>
@@ -46,6 +46,7 @@
                                                 <th>Room No</th>
                                                 <th>Room Type</th>
                                                 <th>Rate Per Month</th>
+                                                <th>Tenant</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -56,13 +57,26 @@
                                                 $response = file_get_contents($apiUrl);
                                                 $data = json_decode($response, true);
                                                 for($i = 0; $i < count($data); $i++) {
+
+                                                    $apiUrlTenant = $config['SERVER_HOST'] . '/tenants/' . $data[$i]['assignedTo'];
+                                                    $responseTenant = file_get_contents($apiUrlTenant);
+                                                    $tenantData = json_decode($responseTenant, true);
+
+                                                    $tenantName = '';
+                                                    if(isset($tenantData['firstName']) && isset($tenantData['lastName'])) {
+                                                        $tenantName = $tenantData['firstName'] . ' ' . $tenantData['lastName'];
+                                                    }
+
                                                     $data[$i]['isOccupied'] = $data[$i]['isOccupied'] == false ? '<span class="alert alert-success">Vacant</span>' : '<span class="alert alert-danger">Occupied</span>';
+
                                                     echo '<tr>'
                                                     . '<td>' . $data[$i]['roomCode'] . '</td>'
-                                                    . '<td>' . $data[$i]['buildingCode'] . '</td>'
+                                                    . '<td>' . $data[$i]['roomType'] . '</td>'
                                                     . '<td>' . $data[$i]['ratePerMonth'] . '</td>'
+                                                    . '<td>' . $tenantName . '</td>'
                                                     . '<td>' . $data[$i]['isOccupied'] . '</td>'
                                                     . '<td>'
+                                                    . '<a class="btn btn-primary btn-sm" href="' . $config['BASED_URL'] . '/app/staff/viewRoom.php?roomId=' . $data[$i]['id'] . '"><i class="fa fa-eye"></i></a> '
                                                     . '<a class="btn btn-info btn-sm" href="' . $config['BASED_URL'] . '/app/staff/updateRoom.php?roomId=' . $data[$i]['id'] . '"><i class="fa fa-edit"></i></a> '
                                                     . '<a class="btn btn-danger btn-sm" href="' . $config['BASED_URL'] . '/app/staff/deleteRoom.php?roomId=' . $data[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
                                                     . '</td>'

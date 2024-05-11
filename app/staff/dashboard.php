@@ -5,7 +5,7 @@
     </head>
     <body>
         <!--Pre loader-->
-        <?php include 'includes/_preLoader.php'; ?>
+        <?php // include 'includes/_preLoader.php'; ?>
 
         <!--Header-->
         <?php include 'includes/_header.php'; ?>
@@ -24,12 +24,14 @@
                     <h2 class="h3 mb-0">Apartment Overview</h2>
                 </div>
 
+                <?php $apm = new APM(); ?>
+
                 <div class="row pb-10">
                     <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">10</div>
+                                    <div class="weight-700 font-24 text-dark"><?= $apm->get_TotalOccupiedRoom(); ?></div>
                                     <div class="font-14 text-secondary weight-500">
                                         Occupied Room
                                     </div>
@@ -46,7 +48,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">30</div>
+                                    <div class="weight-700 font-24 text-dark"><?= $apm->get_TotalAvailableRoom(); ?></div>
                                     <div class="font-14 text-secondary weight-500">
                                         Available Room</div>
                                 </div>
@@ -62,7 +64,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">15</div>
+                                    <div class="weight-700 font-24 text-dark"><?= $apm->get_TotalTenant(); ?></div>
                                     <div class="">Total Tenant</div>
                                 </div>
                                 <div class="widget-icon">
@@ -80,7 +82,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">30</div>
+                                    <div class="weight-700 font-24 text-dark"><?= $apm->get_TotalRoom(); ?></div>
                                     <div class="">Total Room</div>
                                 </div>
                                 <div class="widget-icon">
