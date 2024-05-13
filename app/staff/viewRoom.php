@@ -50,6 +50,7 @@
                                             <div class="col-lg-4 col-md-4">
                                                 <div class="form-group">
                                                     <label>Assign Tenant:</label>
+                                                    <div id="error-handler"></div>
                                                     <select class="form-control" onchange="assignTo(this.value);">
                                                         <option>Choose One</option>
                                                         <?php
