@@ -10,8 +10,13 @@
                         House
                     </h1>
                     <p>
-                        It is a long established fact that a reader will be distracted by the readable content of
+                        For modern living, whether in a sleek apartment or a spacious house, home is where innovation meets comfort, where every corner holds the promise of possibility.
                     </p>
+                    <div class="btn-box">
+                        <a href="<?php echo $config['BASED_URL'] . '/tenantLogin.php' ?>" class="">
+                            GET STARTED
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

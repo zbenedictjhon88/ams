@@ -1,4 +1,4 @@
-<div class="pre-loader">
+<div class="pre-loader" hidden="">
     <div class="pre-loader-box">
         <div class="loader-logo">
             <!-- picture-->
