@@ -224,6 +224,22 @@
         });
     }
 
+    function unassignFrom(roomId) {
+        $.ajax({
+            type: 'PATCH',
+            url: "<?php echo $config['SERVER_HOST'] . '/rooms/unassign' ?>",
+            data: {
+                roomId: roomId,
+            },
+            dataType: "json",
+        }).done(function (data) {
+            location.reload();
+        }).fail(function (err) {
+            console.log(err);
+            $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+        });
+    }
+
     function showPassword(elementId) {
         var currentType = $("#" + elementId).attr("type");
         if (currentType === "password") {

@@ -39,12 +39,35 @@
 
                         <div class="row mt-15">
                             <div class="col-md-12">
+
+                                <?php
+                                    $apiUrl = $config['SERVER_HOST'] . '/rooms/' . $_GET['roomId'];
+                                    $response = file_get_contents($apiUrl);
+                                    $data = json_decode($response, true);
+                                ?>
+                                <?php if(!isset($data['assignedTo'])): ?>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label>Assign Tenant:</label>
+                                                    <select class="form-control" onchange="assignTo(this.value);">
+                                                        <option>Choose One</option>
+                                                        <?php
+                                                        $apiUrlTenant = $config['SERVER_HOST'] . '/tenants';
+                                                        $responseTenant = file_get_contents($apiUrlTenant);
+                                                        $dataTenant = json_decode($responseTenant, true);
+                                                        for($i = 0; $i < count($dataTenant); $i++) {
+                                                            echo '<option value="' . $dataTenant[$i]['id'] . '">' . $dataTenant[$i]['firstName'] . ' ' . $dataTenant[$i]['lastName'] . '</option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
                                 <table class="table table-bordered table-hover">
-                                    <?php
-                                        $apiUrl = $config['SERVER_HOST'] . '/rooms/' . $_GET['roomId'];
-                                        $response = file_get_contents($apiUrl);
-                                        $data = json_decode($response, true);
-                                    ?>
+
                                     <tbody>
                                         <tr>
                                             <td>Room No:</td>
@@ -58,30 +81,32 @@
                                             <td>Rate Per Month:</td>
                                             <td><?= $data['ratePerMonth'] ?></td>
                                         </tr>
+                                        <?php if(isset($data['assignedTo'])): ?>
+                                                <?php
+                                                $apiUrlTenant1 = $config['SERVER_HOST'] . '/tenants/' . $data['assignedTo'];
+                                                $responseTenant1 = file_get_contents($apiUrlTenant1);
+                                                $tenantData1 = json_decode($responseTenant1, true);
 
-                                        <?php if(!isset($data['assignedTo'])): ?>
+                                                $tenantName = '';
+                                                if(isset($tenantData1['firstName']) && isset($tenantData1['lastName'])) {
+                                                    $tenantName = $tenantData1['firstName'] . ' ' . $tenantData1['lastName'];
+                                                }
+                                                ?>
                                                 <tr>
-                                                    <td>Assign To(Tenant):</td>
-                                                    <td>
-                                                        <select class="form-control" onchange="assignTo(this.value);">
-                                                            <option>Choose One</option>
-                                                            <?php
-                                                            $apiUrl = $config['SERVER_HOST'] . '/tenants';
-                                                            $response = file_get_contents($apiUrl);
-                                                            $data = json_decode($response, true);
-                                                            for($i = 0; $i < count($data); $i++) {
-                                                                echo '<option value="' . $data[$i]['id'] . '">' . $data[$i]['firstName'] . ' ' . $data[$i]['lastName'] . '</option>';
-                                                            }
-                                                            ?>
-                                                        </select>
-
-                                                        <div id="error-handler"></div>
-                                                    </td>
+                                                    <td>Tenant</td>
+                                                    <td><?php echo $tenantName; ?></td>
                                                 </tr>
                                             <?php endif; ?>
                                     </tbody>
                                 </table>
+
                                 <a class="btn btn-dark" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">BACK</a>
+                                <?php if(isset($data['assignedTo'])): ?>
+                                        <a href="#" class="btn btn-danger" onclick="unassignFrom('<?php echo $data['id'] ?>');">
+                                            <i class="fa fa-trash"></i>
+                                            Unassign Tenant
+                                        </a>
+                                    <?php endif; ?>
                             </div>
                         </div>
                     </div>
