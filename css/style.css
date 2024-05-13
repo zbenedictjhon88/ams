@@ -59,7 +59,11 @@ body {
 .sub_page .hero_area {
   height: auto;
   background: none;
-  background-color: #0f2480;
+  /*background-color: #0f2480;*/
+}
+
+.sub_page .hero_area nav ul li a {
+  color: #0f2480;
 }
 
 .header_section {

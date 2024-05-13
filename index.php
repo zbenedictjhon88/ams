@@ -41,6 +41,72 @@
         </section>
         <!-- end about section -->
 
+        <!-- price section -->
+
+        <section class="price_section layout_padding-bottom">
+            <div class="container">
+                <div class="heading_container">
+                    <h2>
+                        Our Room Type
+                    </h2>
+                </div>
+                <div class="price_container">
+                    <div class="box">
+                        <div class="detail-box">
+                            <div class="heading-box">
+                                <h4>
+                                    01
+                                </h4>
+                                <h6>
+                                    One-Bedroom Apartment
+                                </h6>
+                            </div>
+                            <div class="text-box">
+                                <p>
+                                    Typically consists of a separate bedroom, a living area, kitchen, and bathroom.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="detail-box">
+                            <div class="heading-box">
+                                <h4>
+                                    02
+                                </h4>
+                                <h6>
+                                    Two-Bedroom Apartment
+                                </h6>
+                            </div>
+                            <div class="text-box">
+                                <p>
+                                    Offers two separate bedrooms along with a living area, kitchen, and bathroom.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="detail-box">
+                            <div class="heading-box">
+                                <h4>
+                                    01
+                                </h4>
+                                <h6>
+                                    Duplex/Triplex Apartment
+                                </h6>
+                            </div>
+                            <div class="text-box">
+                                <p>
+                                    Multi-level units with two or three floors, offering more space and separation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end price section -->
+
         <!-- contact section -->
         <section class="contact_section ">
             <div class="container">
