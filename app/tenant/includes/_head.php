@@ -25,6 +25,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/vendors/styles/icon-font.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/src/plugins/datatables/css/responsive.bootstrap4.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/src/plugins/jvectormap/jquery-jvectormap-2.0.3.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/assets/css/style1.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/vendors/styles/style.css" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo $config['BASED_URL'] ?>/assets/css/main.css" />

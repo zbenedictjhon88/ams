@@ -3,24 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/laragon/www/ams/includes/_head.php</file>
-            <file>file:/C:/laragon/www/ams/app/staff/dashboard.php</file>
-            <file>file:/C:/laragon/www/ams/assets/img/AMS.png</file>
-            <file>file:/C:/laragon/www/ams/includes/_header.php</file>
-            <file>file:/C:/laragon/www/ams/includes/_footer.php</file>
-            <file>file:/C:/laragon/www/ams/css/style.css</file>
-            <file>file:/C:/laragon/www/ams/aboutUs.php</file>
-            <file>file:/C:/laragon/www/ams/assets/img/AMS1.jpg</file>
-            <file>file:/C:/laragon/www/ams/contactUs.php</file>
-            <file>file:/C:/laragon/www/ams/config.php</file>
-            <file>file:/C:/laragon/www/ams/assets/img/AMS.jpg</file>
-            <file>file:/C:/laragon/www/ams/assets/img/about-img.jpg</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/includes/_head.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/includes/_head.php</file>
-            <file>file:/C:/laragon/www/ams/tenantLogin.php</file>
-            <file>file:/C:/laragon/www/ams/includes/_banner.php</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/addComplain.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/includes/_sideBar.php</file>
-            <file>file:/C:/laragon/www/ams/index.php</file>
-            <file>file:/C:/laragon/www/ams/assets/css/style3.css</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/includes/_sideBar.php</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/includes/_footer.php</file>
         </group>
     </open-files>
 </project-private>

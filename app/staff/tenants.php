@@ -28,7 +28,7 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                   <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Tenant List
                                     </li>
@@ -39,6 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                <a href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Add Tenant</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
                                         <thead>

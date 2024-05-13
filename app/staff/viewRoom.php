@@ -82,6 +82,15 @@
                                             <td>Rate Per Month:</td>
                                             <td><?= $data['ratePerMonth'] ?></td>
                                         </tr>
+                                        <tr>
+                                            <td>Last Tenant Assigned:</td>
+                                            <td>
+                                                <?php
+                                                    $originalDate = $data['lastDateAssigned'];
+                                                    echo date("M d, Y", strtotime($originalDate));
+                                                ?>
+                                            </td>
+                                        </tr>
                                         <?php if(isset($data['assignedTo'])): ?>
                                                 <?php
                                                 $apiUrlTenant1 = $config['SERVER_HOST'] . '/tenants/' . $data['assignedTo'];

@@ -19,46 +19,6 @@
             window.location.href = "<?php echo $config['BASED_URL'] . '/index.php' ?>";
         }
 
-//        $('form.staff-add-form').validate({
-//            rules: {
-//                name: {
-//                    required: true,
-//                    minlength: 2
-//                },
-//                email: {
-//                    required: true,
-//                    email: true
-//                }
-//            },
-//            messages: {
-//                name: {
-//                    required: "Please enter your name.",
-//                    minlength: "Name must be at least 2 characters long."
-//                },
-//                email: {
-//                    required: "Please enter your email address.",
-//                    email: "Please enter a valid email address."
-//                }
-//            },
-//            submitHandler: function (form) {
-//                // Function na ito ang tatawagin kapag ang form ay wasto na na-validate
-//                var $form = $(form);
-//                $.ajax({
-//                    type: $form.attr('method'),
-//                    url: "<?php echo $config['SERVER_HOST'] . '/tenants' ?>",
-//                    data: $form.serialize(),
-//                    dataType: "json",
-//                }).done(function (data) {
-//                    $form[0].reset();
-//                    $('#error-handler').html('<p class="error">Successfully added.</p>');
-//                }).fail(function (err) {
-//                    console.log(err);
-//                    $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
-//                });
-//            }
-//        });
-
-
         $('form.staff-add-form').submit(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser
             var form = $(this);
@@ -74,21 +34,7 @@
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
-        $('form.room-add-form').submit(function (e) {
-            e.preventDefault(); // Prevent the form from submitting via the browser
-            var form = $(this);
-            $.ajax({
-                type: form.attr('method'),
-                url: "<?php echo $config['SERVER_HOST'] . '/rooms' ?>",
-                data: form.serialize(),
-                dataType: "json",
-            }).done(function (data) {
-                form[0].reset();
-                $('#error-handler').html('<p class="success">Successfully added.</p>');
-            }).fail(function (err) {
-                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
-            });
-        });
+
         $('#dt').DataTable({
             'pageLength': 10,
             'bLengthChange': false,

@@ -41,8 +41,7 @@
         </section>
         <!-- end about section -->
 
-        <!-- price section -->
-
+        <!-- room section -->
         <section class="price_section layout_padding-bottom">
             <div class="container">
                 <div class="heading_container">
@@ -105,7 +104,7 @@
                 </div>
             </div>
         </section>
-        <!-- end price section -->
+        <!-- end room section -->
 
         <!-- contact section -->
         <section class="contact_section ">
@@ -120,23 +119,22 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-5 " style="margin:auto;">
                         <div class="form_container">
-                            <form action="">
+
+                            <div id="message-alert"></div>
+
+                            <form class="feedback-form" action="#" method="post" autocomplete="off">
+                                <input type="hidden" name="feedback" value="feedback"  />
                                 <div>
-                                    <input type="text" placeholder="Name" />
+                                    <input type="text" name="name" placeholder="Name" required="" />
                                 </div>
                                 <div>
-                                    <input type="email" placeholder="Email" />
+                                    <input type="email" name="email" placeholder="Email" required="" />
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="Phone Number" />
-                                </div>
-                                <div>
-                                    <input type="text" class="message-box" placeholder="Message" />
+                                    <input type="text" name="content" class="message-box" placeholder="Message" required="" />
                                 </div>
                                 <div class="d-flex ">
-                                    <button>
-                                        Send
-                                    </button>
+                                    <input type="submit" value="Send" />
                                 </div>
                             </form>
                         </div>

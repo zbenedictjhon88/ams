@@ -21,3 +21,18 @@
 <link href="<?php echo $config['BASED_URL'] ?>/css/style.css" rel="stylesheet" />
 <!-- responsive style -->
 <link href="<?php echo $config['BASED_URL'] ?>/css/responsive.css" rel="stylesheet" />
+
+<style>
+    .success {
+        color: #FFF;
+        background-color: #65ae08;
+        padding: 10px;
+        border-radius: 7px;
+    }
+    .error {
+        color: #FFF;
+        background-color: #ae080b;
+        padding: 10px;
+        border-radius: 7px;
+    }
+</style>

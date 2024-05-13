@@ -23,7 +23,7 @@
                         ><span class="mtext">Tenant Section</span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "addTenant" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>">Add Tenant</a></li>
+                        <!--<li><a class="<?php echo $config['ACTIVE_LINK'] == "addTenant" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>">Add Tenant</a></li>-->
                         <li><a class="<?php echo $config['ACTIVE_LINK'] == "tenants" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">Tenant Management</a></li>
                     </ul>
                 </li>
