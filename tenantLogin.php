@@ -27,7 +27,7 @@
                             <form class="tenant-login-form" action="#" method="post">
                                 <div class="admin_tenant">
                                     <a href="login.php" class="tenant">Admin</a>
-                                    <a href="index.php" class="admin">Tenant</a>
+                                    <a href="tenantLogin.php" class="admin">Tenant</a>
                                 </div>
 
                                 <div id="error-handler"></div>
