@@ -74,7 +74,7 @@
                                         <div class="input-group mb-0">
                                             <a
                                                 class="btn btn-outline-primary btn-lg btn-block"
-                                                href="<?php echo $config['BASED_URL'] ?>/index.php"
+                                                href="<?php echo $config['BASED_URL'] ?>/tenantLogin.php"
                                                 >Login</a
                                             >
                                         </div>
