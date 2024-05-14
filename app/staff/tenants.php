@@ -39,6 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                <div id="message-alert"></div>
                                 <a href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Add Tenant</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
@@ -66,7 +67,7 @@
                                                     . '<td>' . $data[$i]['contact'] . '</td>'
                                                     . '<td>'
                                                     . '<a class="btn btn-info btn-sm" href="' . $config['BASED_URL'] . '/app/staff/updateTenant.php?tenantId=' . $data[$i]['id'] . '"><i class="fa fa-edit"></i></a> '
-                                                    . '<a class="btn btn-danger btn-sm" href="' . $config['BASED_URL'] . '/app/staff/deleteTenant.php?tenantId=' . $data[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
+                                                    . '<a id="delete" class="btn btn-danger btn-sm" href="' . $config['BASED_URL'] . '/app/staff/deleteTenant.php?tenantId=' . $data[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
                                                     . '</td>'
                                                     . '</tr>';
                                                 }

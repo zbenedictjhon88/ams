@@ -108,6 +108,26 @@
             dom: 'Bfrtip',
             retrieve: true,
         });
+
+        $('a#delete').click(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser;
+            if (confirm("Are you sure you want to delete?")) {
+                console.log(this.href);
+                $.ajax({
+                    type: 'GET',
+                    url: this.href,
+                }).done(function (data) {
+                    console.log(data);
+                    $('#message-alert').html('<p class="success">Record successfully deleted!</p>');
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }).fail(function (err) {
+                    console.log(err);
+                    console.log('err');
+                });
+            }
+        })
     });
 
     let rooms = localStorage.getItem('roomList') != null ? JSON.parse(localStorage.getItem('roomList')) : [];
@@ -251,7 +271,7 @@
         console.log(data);
     }
     getUserInfo();
-    
+
     function complaints() {
         $('#dt').DataTable().destroy();
         $.ajax({

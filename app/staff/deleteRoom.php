@@ -1,6 +1,6 @@
 <?php
 
-    include 'includes/_head.php';
+    include '../../config.php';
 
     if(isset($_GET['roomId'])) {
 
@@ -16,8 +16,8 @@
             $error = curl_error($ch);
             echo "Error: $error";
         } else {
-            echo '<script>alert("Room successfully deleted!");</script>';
-            header("Location: " . $config['BASED_URL'] . "/app/staff/rooms.php");
+            echo 'Record successfully deleted!';
+            //header("Location: " . $config['BASED_URL'] . "/app/staff/rooms.php");
         }
 
         curl_close($ch);
