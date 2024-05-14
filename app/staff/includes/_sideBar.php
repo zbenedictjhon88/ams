@@ -37,6 +37,12 @@
                         <li><a class="<?php echo $ams->getActiveMenu('rooms', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">Room Management</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/complaints.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "complaints" ? "active" : "" ?>">
+                        <span class="micon bi bi-receipt-cutoff"></span>
+                        <span class="mtext">Complaints</span>
+                    </a>
+                </li>
                 <li hidden>
                     <a href="invoice.php" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-receipt-cutoff"></span
