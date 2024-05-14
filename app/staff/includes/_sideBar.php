@@ -33,7 +33,7 @@
                         ><span class="mtext">Room Section</span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="<?php echo $ams->getActiveMenu('addRoom') ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addRoom.php' ?>">Add Room</a></li>
+                        <!--<li><a class="<?php echo $ams->getActiveMenu('addRoom') ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addRoom.php' ?>">Add Room</a></li>-->
                         <li><a class="<?php echo $ams->getActiveMenu('rooms', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">Room Management</a></li>
                     </ul>
                 </li>

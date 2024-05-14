@@ -83,6 +83,7 @@
 
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Sign-up</button>
+                                     <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">BACK</a>
                                 </form>
                             </div>
                         </div>

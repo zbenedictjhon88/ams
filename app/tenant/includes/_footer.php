@@ -75,7 +75,7 @@
 
     function logout() {
         localStorage.clear();
-        window.location.href = "<?php echo $config['BASED_URL'] . '/index.php' ?>";
+        window.location.href = "<?php echo $config['BASED_URL'] . '/tenantLogin.php' ?>";
     }
 
     function getUserInfo() {

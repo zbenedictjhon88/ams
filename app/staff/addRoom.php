@@ -59,6 +59,7 @@
 
                                     </fieldset>
                                     <button type="submit" id="sign" name="sign">Add</button>
+                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">BACK</a>
                                 </form>
                             </div>
                         </div>

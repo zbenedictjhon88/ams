@@ -159,7 +159,7 @@
                 $getActiveFileMenu = basename("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ".php");
                 if($menu == $getActiveFileMenu) {
                     echo "active";
-                } elseif(strstr($getActiveFileMenu, "viewRoom") || strstr($getActiveFileMenu, "updateRoom")) {
+                } elseif(strstr($getActiveFileMenu, "viewRoom") || strstr($getActiveFileMenu, "updateRoom") || strstr($getActiveFileMenu, "addRoom")) {
                     if($withManagement) {
                         echo 'active';
                     }

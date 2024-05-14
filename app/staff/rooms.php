@@ -39,6 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                <a href="<?php echo $config['BASED_URL'] . '/app/staff/addRoom.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Add Room</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
                                         <thead>
