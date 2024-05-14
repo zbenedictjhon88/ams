@@ -16,12 +16,10 @@
                     </span>
                     <span class="user-name"></span>
                 </a>
-                <div
-                    class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
-                    >
-                    <!--                    <a class="dropdown-item" href="profile.php"
-                                           ><i class="dw dw-user1"></i> Profile</a
-                                        >-->
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                    <a class="dropdown-item" href="<?php echo $config['BASED_URL'] . '/app/staff/profile.php' ?>">
+                        <i class="dw dw-user1"></i> Profile
+                    </a>
                     <a class="dropdown-item" href="#" onclick="logout();">
                         <i class="dw dw-logout"></i> Log Out
                     </a>

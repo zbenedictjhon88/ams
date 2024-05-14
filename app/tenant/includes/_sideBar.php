@@ -1,3 +1,4 @@
+<?php $ams = new APM(); ?>
 <div class="left-side-bar">
     <div class="brand-logo">
         <a>
@@ -23,14 +24,13 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <?php $com = array('addComplain', 'rooms') ?>
-                    <a href="javascript:;" class="dropdown-toggle <?php echo in_array($config['ACTIVE_LINK'], $com) ? "active" : "" ?>">
+                    <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('complaints', 1) ?>">
                         <span class="micon bi bi-list"></span
-                        ><span class="mtext">Complain Section</span>
+                        ><span class="mtext">Complaint Section</span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "addComplain" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>">Add Complain</a></li>
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "rooms" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">Complain List</a></li>
+                        <li><a class="<?php echo $ams->getActiveMenu('addComplain') ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>">Compose Complaint</a></li>
+                        <li><a class="<?php echo $ams->getActiveMenu('complaints', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>">Complaints List</a></li>
                     </ul>
                 </li>
             </ul>

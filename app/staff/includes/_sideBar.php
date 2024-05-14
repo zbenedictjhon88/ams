@@ -1,3 +1,4 @@
+<?php $ams = new APM(); ?>
 <div class="left-side-bar">
     <div class="brand-logo">
         <a>
@@ -17,25 +18,23 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <?php $ten = array('addTenant', 'tenants') ?>
-                    <a href="javascript:;" class="dropdown-toggle <?php echo in_array($config['ACTIVE_LINK'], $ten) ? "active" : "" ?>">
+                    <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('tenants', 1) ?>">
                         <span class="micon fa fa-users"></span
                         ><span class="mtext">Tenant Section</span>
                     </a>
                     <ul class="submenu">
-                        <!--<li><a class="<?php echo $config['ACTIVE_LINK'] == "addTenant" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>">Add Tenant</a></li>-->
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "tenants" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">Tenant Management</a></li>
+                        <!--<li><a class="<?php echo $ams->getActiveMenu('addTenant') ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addTenant.php' ?>">Add Tenant</a></li>-->
+                        <li><a class="<?php echo $ams->getActiveMenu('tenants', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">Tenant Management</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <?php $roo = array('addRoom', 'rooms') ?>
-                    <a href="javascript:;" class="dropdown-toggle <?php echo in_array($config['ACTIVE_LINK'], $roo) ? "active" : "" ?>">
+                    <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('rooms', 1) ?>">
                         <span class="micon bi bi-house"></span
                         ><span class="mtext">Room Section</span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "addRoom" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addRoom.php' ?>">Add Room</a></li>
-                        <li><a class="<?php echo $config['ACTIVE_LINK'] == "rooms" ? "active" : "" ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">Room Management</a></li>
+                        <li><a class="<?php echo $ams->getActiveMenu('addRoom') ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/addRoom.php' ?>">Add Room</a></li>
+                        <li><a class="<?php echo $ams->getActiveMenu('rooms', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">Room Management</a></li>
                     </ul>
                 </li>
                 <li hidden>

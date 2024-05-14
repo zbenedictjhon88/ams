@@ -19,46 +19,6 @@
             window.location.href = "<?php echo $config['BASED_URL'] . '/login.php' ?>";
         }
 
-//        $('form.staff-add-form').validate({
-//            rules: {
-//                name: {
-//                    required: true,
-//                    minlength: 2
-//                },
-//                email: {
-//                    required: true,
-//                    email: true
-//                }
-//            },
-//            messages: {
-//                name: {
-//                    required: "Please enter your name.",
-//                    minlength: "Name must be at least 2 characters long."
-//                },
-//                email: {
-//                    required: "Please enter your email address.",
-//                    email: "Please enter a valid email address."
-//                }
-//            },
-//            submitHandler: function (form) {
-//                // Function na ito ang tatawagin kapag ang form ay wasto na na-validate
-//                var $form = $(form);
-//                $.ajax({
-//                    type: $form.attr('method'),
-//                    url: "<?php echo $config['SERVER_HOST'] . '/tenants' ?>",
-//                    data: $form.serialize(),
-//                    dataType: "json",
-//                }).done(function (data) {
-//                    $form[0].reset();
-//                    $('#error-handler').html('<p class="error">Successfully added.</p>');
-//                }).fail(function (err) {
-//                    console.log(err);
-//                    $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
-//                });
-//            }
-//        });
-
-
         $('form.staff-add-form').submit(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser
             var form = $(this);
@@ -282,6 +242,15 @@
 
         $('#passwordStatus').text(passwordStatus);
     }
+
+    function getUserInfo() {
+        let data = JSON.parse(localStorage.getItem('staff'));
+        let name = data['user']['firstName'] + ' ' + data['user']['lastName'];
+        $('#userName').text(name);
+        $('#userEmail').text(data['user']['email']);
+        console.log(data);
+    }
+    getUserInfo();
 
 </script>
 

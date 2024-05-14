@@ -14,22 +14,42 @@
 
 <script>
     $(function () {
-        
+
         if (localStorage.getItem('tenant') == null) {
             window.location.href = "<?php echo $config['BASED_URL'] . '/index.php' ?>";
         }
 
-        $('form.staff-add-form').submit(function (e) {
+        $('form.complain-add-form').submit(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser
             var form = $(this);
             $.ajax({
                 type: form.attr('method'),
-                url: "<?php echo $config['SERVER_HOST'] . '/tenants' ?>",
+                url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
                 data: form.serialize(),
                 dataType: "json",
             }).done(function (data) {
                 form[0].reset();
-                $('#error-handler').html('<p class="error">Successfully added.</p>');
+                console.log(data);
+                $('#error-handler').html('<p class="success">Complaint sent!</p>');
+            }).fail(function (err) {
+                console.log(err);
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
+        
+         $('form.staff-edit-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser
+
+            var tenantId = "<?php echo isset($_GET['tenantId']) ? $_GET['tenantId'] : null; ?>";
+
+            var form = $(this);
+            $.ajax({
+                type: form.attr('method'),
+                url: "<?php echo $config['SERVER_HOST'] . '/tenants/' ?>" + tenantId,
+                data: form.serialize(),
+                dataType: "json",
+            }).done(function (data) {
+                $('#error-handler').html('<p class="error">Successfully updated.</p>');
             }).fail(function (err) {
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
@@ -47,37 +67,6 @@
         });
     });
 
-
-    function roomList() {
-
-        $('#dt').DataTable().clear().destroy();
-        $.ajax({
-            type: "GET",
-            url: "<?php echo $config['SERVER_HOST'] . '/rooms' ?>",
-            dataType: "json",
-        }).done(function (res) {
-            console.log(res)
-            for (var i = 1; i <= res.length; res++) {
-                $('#room-list').append('<tr>' +
-                        '<td>' + i + '</td>' +
-                        '<td>' + res[i]['roomCode'] + '</td>' +
-                        '<td>' + res[i]['buildingCode'] + '</td>' +
-                        '<td>' + res[i]['isOccupied'] + '</td>' +
-                        '<td>' + res[i]['ratePerMonth'] + '</td>' +
-                        '<td>' +
-                        //'<a href="<?php echo $config['BASED_URL'] . '/app/staff/viewRoom.php' ?>">View</a> ' +
-                        '<a href="<?php echo $config['BASED_URL'] . '/app/staff/updateRoom.php' ?>">Update</a> ' +
-                        '<a href="<?php echo $config['BASED_URL'] . '/app/staff/viewRoom.php' ?>">Delete</a> ' +
-                        '<a onclick="setSessionRedirect("roomEdit", "' + res + '", "<?php echo $config['BASED_URL'] . '/app/staff/updateRoom.php' ?>")">Update</a> ' +
-                        '</td>' +
-                        '</tr>')
-            }
-        }).fail(function (err) {
-            console.log(err)
-        });
-    }
-    roomList();
-
     function setSessionRedirect(variable, value, link) {
         sessionStorage.setItem(variable, value);
         window.location.href = link;
@@ -88,6 +77,64 @@
         localStorage.clear();
         window.location.href = "<?php echo $config['BASED_URL'] . '/index.php' ?>";
     }
+
+    function getUserInfo() {
+        let data = JSON.parse(localStorage.getItem('tenant'));
+        let name = data['user']['firstName'] + ' ' + data['user']['lastName'];
+        $('#userName').text(name);
+        $('#userEmail').text(data['user']['email']);
+        $('#userId').val(data['user']['id']);
+        console.log(data);
+    }
+    getUserInfo();
+
+    function complaints() {
+        $('#dt').DataTable().destroy();
+        let data = JSON.parse(localStorage.getItem('tenant'));
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
+            data: {
+                complaints: 'complaints',
+                tenantId: data['user']['id']
+            },
+            dataType: 'json'
+        }).done(function (data) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                $('#complaintsList').append('<tr>' +
+                        '<td>' + data[i]['subject'] + '</td>' +
+                        '<td>' + data[i]['description'] + '</td>' +
+                        '<td>' + data[i]['action_taken'] + '</td>' +
+                        '<td>' +
+                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
+                        '</td>' +
+                        '</tr>');
+            }
+        }).fail(function (err) {
+            console.log(err);
+        });
+    }
+    complaints();
+
+    function setPHPSession() {
+
+        let data = JSON.parse(localStorage.getItem('tenant'));
+
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
+            data: {
+                userId: data['user']['id'],
+                userEmail: data['user']['email']
+            },
+        }).done(function (data) {
+            console.log(data);
+        }).fail(function (err) {
+            console.log(err);
+        });
+    }
+    setPHPSession();
 
 </script>
 

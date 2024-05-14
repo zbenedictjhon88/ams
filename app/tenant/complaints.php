@@ -5,7 +5,7 @@
     </head>
     <body>
         <!--Pre loader-->
-        <?php include 'includes/_preLoader.php'; ?>
+        <?php // include 'includes/_preLoader.php'; ?>
 
         <!--Header-->
         <?php include 'includes/_header.php'; ?>
@@ -24,13 +24,13 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Complaint</h4>
+                                <h4>Room Management</h4>
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Complaint 
+                                        Room Management
                                     </li>
                                 </ol>
                             </nav>
@@ -38,23 +38,22 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <form class="complain-add-form" method="post" action="#">
-                                    <h1>Do you want to Complaint?</h1><br>
+                                <br />
+                                <div class="table-responsive-sm">
+                                    <table id="dt" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject/Issue</th>
+                                                <th>Description/Impact</th>
+                                                <th>Action Taken</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="complaintsList">
 
-                                    <div id="error-handler"></div>
-
-                                    <fieldset>
-                                        <input type="hidden" name="complain" value="complain">
-                                        <input type="hidden" name="tenant_id" id="userId">
-
-                                        <label class="required"><span></span>Subject/Issue:</label>
-                                        <input type="text" name="subject" required>
-
-                                        <label class="required"><span></span>Description/Impact:</label>
-                                        <input type="text" name="description" required>
-                                    </fieldset>
-                                    <button type="submit" id="sign" name="complain">Send</button>
-                                </form>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

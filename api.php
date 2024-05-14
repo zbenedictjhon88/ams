@@ -1,5 +1,7 @@
 <?php
 
+//    session_start();
+
     class APM
     {
 
@@ -121,7 +123,75 @@
             return $status;
         }
 
+        public function getComplain($tenantId)
+        {
+
+            $conn = $this->conn();
+
+            $sql = "SELECT * FROM complaints WHERE tenant_id = '" . $tenantId . "'";
+            $result = $conn->query($sql);
+            $conn->close();
+
+            return $result;
+        }
+
+        public function deleteComplain($id)
+        {
+            $status = false;
+            $conn = $this->conn();
+
+            $sql = "DELETE FROM complaints WHERE id=" . $id;
+
+            if($conn->query($sql) === TRUE) {
+                $status = true;
+            }
+
+            return $status;
+        }
+
+        public function getActiveMenu($menu, $withManagement = 0)
+        {
+            $rooms = array('rooms', 'addRoom');
+            $tenants = array('tenants', 'addTenant');
+            $complaints = array('complaints', 'addComplain');
+
+            if(in_array($menu, $rooms)) {
+                $getActiveFileMenu = basename("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ".php");
+                if($menu == $getActiveFileMenu) {
+                    echo "active";
+                } elseif(strstr($getActiveFileMenu, "viewRoom") || strstr($getActiveFileMenu, "updateRoom")) {
+                    if($withManagement) {
+                        echo 'active';
+                    }
+                }
+            }
+
+            if(in_array($menu, $tenants)) {
+                $getActiveFileMenu = basename("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ".php");
+                if($menu == $getActiveFileMenu) {
+                    echo "active";
+                } elseif(strstr($getActiveFileMenu, "viewTenant") || strstr($getActiveFileMenu, "updateTenant") || strstr($getActiveFileMenu, "addTenant")) {
+                    if($withManagement) {
+                        echo 'active';
+                    }
+                }
+            }
+
+            if(in_array($menu, $complaints)) {
+                $getActiveFileMenu = basename("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ".php");
+                if($menu == $getActiveFileMenu) {
+                    echo "active";
+                } elseif(strstr($getActiveFileMenu, "viewComplain") || strstr($getActiveFileMenu, "updateComplain")) {
+                    if($withManagement) {
+                        echo 'active';
+                    }
+                }
+            }
+        }
+
     }
+
+    $config['BASED_URL'] = "http://localhost/ams";
 
     if($_POST) {
         if(isset($_POST['feedback'])) {
@@ -147,4 +217,46 @@
 
             echo json_encode($arr);
         }
+
+        if(isset($_POST['complaints'])) {
+
+            $complaints = array();
+
+            $apm = new APM();
+            $result = $apm->getComplain($_POST['tenantId']);
+            if($result->num_rows > 0) {
+
+                while($row = $result->fetch_assoc()) {
+                    $complaint = array(
+                        'id' => $row['id'],
+                        'subject' => $row['subject'],
+                        'description' => $row['description'],
+                        'action_taken' => $row['action_taken'] == null ? '' : $row['action_taken']
+                    );
+                    array_push($complaints, $complaint);
+                }
+            }
+
+            echo json_encode($complaints);
+        }
+
+        if(isset($_POST['userId']) && isset($_POST['userEmail'])) {
+            $_SESSION['userId'] = $_POST['userId'];
+            $_SESSION['userEmail'] = $_POST['userEmail'];
+
+            echo $_SESSION['userId'];
+            echo $_SESSION['userEmail'];
+        }
     }
+
+
+
+    if($_GET) {
+        if($_GET['get'] == 'delete') {
+            $apm = new APM();
+            $apm->deleteComplain($_GET['complaintId']);
+            header('Location: ' . $config['BASED_URL'] . '/app/tenant/complaints.php');
+        }
+    }
+
+    
