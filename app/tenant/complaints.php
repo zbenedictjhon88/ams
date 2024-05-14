@@ -24,13 +24,13 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Room Management</h4>
+                                <h4>Complaints</h4>
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Room Management
+                                       Complaints
                                     </li>
                                 </ol>
                             </nav>
