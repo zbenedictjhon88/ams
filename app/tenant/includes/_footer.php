@@ -49,7 +49,7 @@
                 data: form.serialize(),
                 dataType: "json",
             }).done(function (data) {
-                $('#error-handler').html('<p class="error">Successfully updated.</p>');
+                $('#error-handler').html('<p class="success">Successfully updated.</p>');
             }).fail(function (err) {
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
