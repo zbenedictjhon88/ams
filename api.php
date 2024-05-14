@@ -125,12 +125,17 @@
 
         public function getComplain($tenantId)
         {
-
             $conn = $this->conn();
 
-            $sql = "SELECT * FROM complaints WHERE tenant_id = '" . $tenantId . "'";
-            $result = $conn->query($sql);
-            $conn->close();
+            if($tenantId == '0') {
+                $sql = "SELECT * FROM complaints";
+                $result = $conn->query($sql);
+                $conn->close();
+            } else {
+                $sql = "SELECT * FROM complaints WHERE tenant_id = '" . $tenantId . "'";
+                $result = $conn->query($sql);
+                $conn->close();
+            }
 
             return $result;
         }
@@ -252,10 +257,12 @@
 
 
     if($_GET) {
-        if($_GET['get'] == 'delete') {
-            $apm = new APM();
-            $apm->deleteComplain($_GET['complaintId']);
-            header('Location: ' . $config['BASED_URL'] . '/app/tenant/complaints.php');
+        if(isset($_GET['get'])) {
+            if($_GET['get'] == 'delete') {
+                $apm = new APM();
+                $apm->deleteComplain($_GET['complaintId']);
+                header('Location: ' . $config['BASED_URL'] . '/app/' . $_GET['user'] . '/complaints.php');
+            }
         }
     }
 

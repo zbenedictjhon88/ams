@@ -251,6 +251,34 @@
         console.log(data);
     }
     getUserInfo();
+    
+    function complaints() {
+        $('#dt').DataTable().destroy();
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
+            data: {
+                complaints: 'complaints',
+                tenantId: 0
+            },
+            dataType: 'json'
+        }).done(function (data) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                $('#complaintsList').append('<tr>' +
+                        '<td>' + data[i]['subject'] + '</td>' +
+                        '<td>' + data[i]['description'] + '</td>' +
+                        '<td>' + data[i]['action_taken'] + '</td>' +
+                        '<td>' +
+                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
+                        '</td>' +
+                        '</tr>');
+            }
+        }).fail(function (err) {
+            console.log(err);
+        });
+    }
+    complaints();
 
 </script>
 
