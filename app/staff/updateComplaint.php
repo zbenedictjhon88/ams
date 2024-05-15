@@ -38,23 +38,32 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <form class="complain-add-form" method="post" action="#">
+
+                                <?php
+                                    $apm = new APM();
+                                    $complaint = $apm->getComplain_byID($_GET['complaintId']);
+                                ?>
+
+                                <form class="complain-edit-form" method="post" action="#">
                                     <h1>Do you want to Complaint?</h1><br>
 
                                     <div id="error-handler"></div>
 
                                     <fieldset>
-                                        <input type="hidden" name="complain" value="complain">
-                                        <input type="hidden" name="tenant_id" id="userId">
+                                        <input type="hidden" name="id" value="<?php echo $complaint['id'] ?>">
+                                        <input type="hidden" name="updateComplain" value="updateComplain">
 
-                                        <label class="required"><span></span>Subject/Issue:</label>
-                                        <input type="text" name="subject" required>
+                                        <label class="required"><span></span>Subject:</label>
+                                        <input type="text" name="subject" value="<?php echo $complaint['subject'] ?>" readonly="">
 
-                                        <label class="required"><span></span>Description/Impact:</label>
-                                        <input type="text" name="description" required>
+                                        <label class="required"><span></span>Description:</label>
+                                        <textarea class="" name="description" readonly=""><?php echo $complaint['description'] ?></textarea>
+                                        
+                                        <label class="required"><span></span>Feedback:</label>
+                                        <textarea class="" name="action_taken" required><?php echo $complaint['action_taken'] ?></textarea>
                                     </fieldset>
-                                    <button type="submit" id="sign" name="complain">Send</button>
-                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>">BACK</a>
+                                    <button type="submit" id="sign" name="complain">Update</button>
+                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/complaints.php' ?>">BACK</a>
                                 </form>
                             </div>
                         </div>

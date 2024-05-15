@@ -98,6 +98,24 @@
             });
         });
 
+        $('form.complain-edit-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser
+            var form = $(this);
+            $.ajax({
+                type: form.attr('method'),
+                url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
+                data: form.serialize(),
+                dataType: "json",
+            }).done(function (data) {
+                //form[0].reset();
+                console.log(data);
+                $('#error-handler').html('<p class="success">Successfully updated!</p>');
+            }).fail(function (err) {
+                console.log(err);
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
+
         $('#dt').DataTable({
             'pageLength': 10,
             'bLengthChange': false,
@@ -127,6 +145,23 @@
                     console.log('err');
                 });
             }
+        })
+
+        $('a#payment').click(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser;
+            $.ajax({
+                type: 'PATCH',
+                url: this.href,
+            }).done(function (data) {
+                console.log(data);
+                $('#message-alert').html('<p class="success">Thank you for your payment! Your transaction was successful.</p>');
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }).fail(function (err) {
+                console.log(err);
+                console.log('err');
+            });
         })
     });
 
@@ -313,9 +348,9 @@
                         data1['firstName'] + ' ' + data1['lastName'],
                         data[i]['subject'],
                         data[i]['description'],
-//                        data[i]['action_taken'],
-//                        '<a class="btn btn-success btn-sm" href="<?php echo $config['BASED_URL'] . '/app/staff/updateComplaint.php?complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-edit"></i></a> ' +
-                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> '
+                        data[i]['action_taken'],
+                        '<a class="btn btn-success btn-sm" href="<?php echo $config['BASED_URL'] . '/app/staff/updateComplaint.php?complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-edit"></i></a> ' +
+                                '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> '
 
                     ]);
                 }).fail(function (err) {

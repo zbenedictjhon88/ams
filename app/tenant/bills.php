@@ -48,7 +48,7 @@
                                                 <th>Amount Due</th>
                                                 <th>Due Date</th>
                                                 <th>Status</th>
-                                                <th>Payment</th>
+                                                <!--<th>Payment</th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -72,8 +72,8 @@
                                                     . '<td>' . $roomData['roomCode'] . '</td>'
                                                     . '<td>' . $balanceData[$i]['amountDue'] . '</td>'
                                                     . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
-                                                    . '<td><i class="fa fa-check fa-fw"></i>' . $isPaid . '</td>'
-                                                    . '<td>' . $action . '</td>'
+                                                    . '<td>' . $isPaid . '</td>'
+//                                                    . '<td>' . $action . '</td>'
                                                     . '</tr>';
                                                 }
                                             ?>

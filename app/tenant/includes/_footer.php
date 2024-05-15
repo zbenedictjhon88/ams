@@ -54,25 +54,22 @@
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
-        
-         $('a#payment').click(function (e) {
+
+        $('a#payment').click(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser;
-            if (confirm("Are you sure you want to delete?")) {
-                console.log(this.href);
-                $.ajax({
-                    type: 'PATCH',
-                    url: this.href,
-                }).done(function (data) {
-                    console.log(data);
-                    $('#message-alert').html('<p class="success">Thank you for your payment! Your transaction was successful.</p>');
-                    setTimeout(function () {
-                        location.reload();
-                    }, 2000);
-                }).fail(function (err) {
-                    console.log(err);
-                    console.log('err');
-                });
-            }
+            $.ajax({
+                type: 'PATCH',
+                url: this.href,
+            }).done(function (data) {
+                console.log(data);
+                $('#message-alert').html('<p class="success">Thank you for your payment! Your transaction was successful.</p>');
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }).fail(function (err) {
+                console.log(err);
+                console.log('err');
+            });
         })
 
         $('#dt').DataTable({
@@ -125,7 +122,7 @@
                 $('#complaintsList').append('<tr>' +
                         '<td>' + data[i]['subject'] + '</td>' +
                         '<td>' + data[i]['description'] + '</td>' +
-//                        '<td>' + data[i]['action_taken'] + '</td>' +
+                        '<td>' + data[i]['action_taken'] + '</td>' +
                         '<td>' +
                         '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=tenant&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
                         '</td>' +

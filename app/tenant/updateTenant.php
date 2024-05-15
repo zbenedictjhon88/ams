@@ -51,15 +51,6 @@
                                     ?>
 
                                     <fieldset>
-                                        <label for="last" class="required"><span></span>Last name:</label>
-                                        <input type="text" id="last_name" name="firstName" placeholder="Last name:" value="<?= $data['firstName'] ?>" required>
-
-                                        <label for="first" class="required">First name:</label>
-                                        <input type="text" id="first_name" name="lastName" placeholder="First name:" value="<?= $data['lastName'] ?>" required>
-
-                                        <label for="middle">Middle name:</label>
-                                        <input type="text" id="mid_name" name="middleName" placeholder="Middle name (Optional)" value="<?= $data['middleName'] ?>">
-
                                         <label for="Contact" class="required">Contact Number:</label>
                                         <input type="tel" name="contact" id="cnum" placeholder="+63" pattern="[0-9]{10}" value="<?= $data['contact'] ?>" required>
 

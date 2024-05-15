@@ -107,8 +107,8 @@
             $conn->close();
             return $data;
         }
-        
-         public function get_TenantComplaint($tenantId)
+
+        public function get_TenantComplaint($tenantId)
         {
             $conn = $this->conn();
 
@@ -176,6 +176,34 @@
             return $result;
         }
 
+        public function getComplain_byID($id)
+        {
+            $row = [];
+            $conn = $this->conn();
+
+            $sql = "SELECT * FROM complaints WHERE id = '" . $id . "'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+            }
+
+            $conn->close();
+            return $row;
+        }
+
+        public function editComplain($data)
+        {
+            $status = false;
+            $conn = $this->conn();
+
+            $sql = "UPDATE complaints SET action_taken='" . $data['action_taken'] . "' WHERE id=" . $data['id'];
+            if($conn->query($sql) === TRUE) {
+                $status = true;
+            }
+
+            return $status;
+        }
+
         public function deleteComplain($id)
         {
             $status = false;
@@ -232,7 +260,7 @@
 
     }
 
-    $config['BASED_URL'] = "http://localhost/ams";
+    //$config['BASED_URL'] = "http://localhost/ams";
 
     if($_POST) {
         if(isset($_POST['feedback'])) {
@@ -284,12 +312,21 @@
 
         if(isset($_POST['session'])) {
             $_SESSION[$_POST['session_key']] = $_POST['session_value'];
-
             echo $_SESSION[$_POST['session_key']];
         }
+
+        if(isset($_POST['updateComplain'])) {
+            $apm = new APM();
+            $result = $apm->editComplain($_POST);
+            if($result) {
+                $arr['message'] = "Successfully updated.";
+            } else {
+                $arr['message'] = "Please try again. Thank you!";
+            }
+
+            echo json_encode($arr);
+        }
     }
-
-
 
     if($_GET) {
         if(isset($_GET['get'])) {
@@ -299,7 +336,11 @@
                 header('Location: ' . $config['BASED_URL'] . '/app/' . $_GET['user'] . '/complaints.php');
             }
         }
-       
+
+//         if(isset($_GET['complaintId'])) {
+//             
+//         }
+//        print_r($_GET);exit();
     }
 
     

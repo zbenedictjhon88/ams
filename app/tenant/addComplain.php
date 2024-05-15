@@ -47,11 +47,12 @@
                                         <input type="hidden" name="complain" value="complain">
                                         <input type="hidden" name="tenant_id" id="userId">
 
-                                        <label class="required"><span></span>Subject/Issue:</label>
+                                        <label class="required"><span></span>Subject:</label>
                                         <input type="text" name="subject" required>
 
-                                        <label class="required"><span></span>Description/Impact:</label>
-                                        <input type="text" name="description" required>
+                                        <label class="required"><span></span>Description:</label>
+                                        <textarea class="" name="description" required></textarea>
+                                        <!--<input type="text" name="description" required>-->
                                     </fieldset>
                                     <button type="submit" id="sign" name="complain">Send</button>
                                     <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>">BACK</a>
