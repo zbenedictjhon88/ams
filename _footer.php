@@ -7,6 +7,25 @@
 <script>
     $(function () {
 
+        $('form.staff-register-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser
+            var form = $(this);
+            $.ajax({
+                type: form.attr('method'),
+                url: "<?php echo $config['SERVER_HOST'] . '/staffs' ?>",
+                data: form.serialize(),
+                dataType: "json",
+            }).done(function (data) {
+                $('#error-handler').html('<p class="success">Sucessfully registered.</p>');
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }).fail(function (err) {
+                console.log(err);
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
+
         $('form.staff-login-form').submit(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser
             var form = $(this);
