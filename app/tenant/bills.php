@@ -47,6 +47,7 @@
                                                 <th>Room No</th>
                                                 <th>Amount Due</th>
                                                 <th>Due Date</th>
+                                                <th>Bill Type</th>
                                                 <th>Status</th>
                                                 <!--<th>Payment</th>-->
                                             </tr>
@@ -70,8 +71,9 @@
 
                                                     echo '<tr>'
                                                     . '<td>' . $roomData['roomCode'] . '</td>'
-                                                    . '<td>' . $balanceData[$i]['amountDue'] . '</td>'
+                                                    . '<td>P ' . number_format(pow($balanceData[$i]['amountDue'], 1), 2) . '</td>'
                                                     . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
+                                                    . '<td>' . $balanceData[$i]['billType'] . '</td>'
                                                     . '<td>' . $isPaid . '</td>'
 //                                                    . '<td>' . $action . '</td>'
                                                     . '</tr>';

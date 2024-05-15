@@ -20,6 +20,9 @@
                     <a class="dropdown-item" href="<?php echo $config['BASED_URL'] . '/app/tenant/profile.php' ?>">
                         <i class="dw dw-user1"></i> Profile
                     </a>
+                    <a class="dropdown-item" href="<?php echo $config['BASED_URL'] . '/app/tenant/changePassword.php' ?>">
+                        <i class="fa fa-lock"></i> Change Password
+                    </a>
                     <a class="dropdown-item" href="#" onclick="logout();">
                         <i class="dw dw-logout"></i> Log Out
                     </a>

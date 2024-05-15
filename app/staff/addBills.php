@@ -38,28 +38,39 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <form class="room-add-form" method="post" action="#">
+                                <form class="bill-add-form" method="post" action="#">
                                     <h1>Create Invoice</h1><br>
 
                                     <div id="error-handler"></div>
 
                                     <fieldset>
                                         <label class="required"><span></span>Room No:</label>
-                                        <input type="text" name="roomCode" placeholder="Room Code" required>
-
-                                        <label class="required"><span></span>Room Type:</label>
-                                        <select name="roomType" class="form-control" required>
-                                            <option title="Typically consists of a separate bedroom, a living area, kitchen, and bathroom." value="One-Bedroom Apartment">One-Bedroom Apartment</option>
-                                            <option title="Offers two separate bedrooms along with a living area, kitchen, and bathroom." value="Two-Bedroom Apartment">Two-Bedroom Apartment</option>
-                                            <option title="Multi-level units with two or three floors, offering more space and separation." value="Duplex/Triplex Apartment">Duplex/Triplex Apartment</option>
+                                        <select name="roomId" class="form-control" required="">
+                                            <option>Choose One</option>
+                                            <?php
+                                                $apiUrlRoom = $config['SERVER_HOST'] . '/rooms';
+                                                $responseRoom = file_get_contents($apiUrlRoom);
+                                                $dataRoom = json_decode($responseRoom, true);
+                                                for($i = 0; $i < count($dataRoom); $i++) {
+                                                    echo '<option value="' . $dataRoom[$i]['id'] . '">' . $dataRoom[$i]['roomCode'] . '</option>';
+                                                }
+                                            ?>
                                         </select>
 
-                                        <label class="required"><span></span>Rate Per Month:</label>
-                                        <input type="text" name="ratePerMonth" placeholder="Rate Per Month" required>
+                                        <label class="required"><span></span>Amount Due:</label>
+                                        <input type="number" name="amountDue" required="">
 
+                                        <label class="required"><span></span>Due Date:</label>
+                                        <input type="date" name="dueDate" required="">
+
+                                        <label class="required"><span></span>Room Type:</label>
+                                        <select name="billType" class="form-control" required="">
+                                            <option value="ELECTRICITY">ELECTRICITY</option>
+                                            <option value="WATER">WATER</option>
+                                        </select>
                                     </fieldset>
-                                    <button type="submit" id="sign" name="sign">Add</button>
-                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>">BACK</a>
+                                    <button type="submit" id="sign" name="sign">Create</button>
+                                    <a class="btn btn-dark btn-block" href="<?php echo $config['BASED_URL'] . '/app/staff/balances.php' ?>">BACK</a>
                                 </form>
                             </div>
                         </div>

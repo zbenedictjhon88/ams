@@ -55,6 +55,33 @@
             });
         });
 
+        $('form.change-pass-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser
+            var form = $(this);
+
+            var pass = $('#newPassword').val();
+            var confPass = $('#confirmPassword').val();
+
+            if (pass != confPass) {
+                $('#error-handler').html('<p class="error">Password not match.</p>');
+                return false;
+            }
+
+            $.ajax({
+                type: form.attr('method'),
+                url: "<?php echo $config['SERVER_HOST'] . '/tenants/updatePassword/' . $_SESSION['userId'] ?>",
+                data: form.serialize(),
+                dataType: "json",
+            }).done(function (data) {
+                console.log(data);
+                form[0].reset();
+                $('#error-handler').html('<p class="success">Password successfully updated.</p>');
+            }).fail(function (err) {
+                console.log(err);
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
+
         $('a#payment').click(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser;
             $.ajax({
@@ -153,6 +180,14 @@
     }
     setPHPSession();
 
+    function showPassword(elementId) {
+        var currentType = $("#" + elementId).attr("type");
+        if (currentType === "password") {
+            $("#" + elementId).attr("type", "text");
+        } else {
+            $("#" + elementId).attr("type", "password");
+        }
+    }
 </script>
 
 <!-- Google Tag Manager (noscript) -->

@@ -39,6 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                <a href="<?php echo $config['BASED_URL'] . '/app/staff/addBills.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Create Invoice</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
                                         <thead>
@@ -47,6 +48,7 @@
                                                 <th>Room No</th>
                                                 <th>Amount Due</th>
                                                 <th>Due Date</th>
+                                                <th>Bill Type</th>
                                                 <th>Status</th>
                                                 <th>Payment</th>
                                             </tr>
@@ -73,11 +75,9 @@
                                                     . '<td>' . $roomData['roomCode'] . '</td>'
                                                     . '<td>' . $balanceData[$i]['amountDue'] . '</td>'
                                                     . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
+                                                    . '<td>' . $balanceData[$i]['billType'] . '</td>'
                                                     . '<td>' . $isPaid . '</td>'
-                                                    . '<td>'
-                                                    . $action
-                                                    . 'asd'
-                                                    . '</td>'
+                                                    . '<td>' . $action . '</td>'
                                                     . '</tr>';
                                                 }
                                             ?>

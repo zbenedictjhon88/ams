@@ -17,7 +17,20 @@
                         ><span class="mtext">Dashboard</span>
                     </a>
                 </li>
-                <li class="dropdown">
+                <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>" class="dropdown-toggle no-arrow <?php echo $ams->getActiveMenu('tenants', 1) ?>">
+                        <span class="micon fa fa-users"></span>
+                        <span class="mtext">Tenant Management</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/rooms.php' ?>" class="dropdown-toggle no-arrow <?php echo $ams->getActiveMenu('rooms', 1) ?>">
+                        <span class="micon fa fa-home"></span>
+                        <span class="mtext">Room Management</span>
+                    </a>
+                </li>
+                
+                <li class="dropdown" hidden="">
                     <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('tenants', 1) ?>">
                         <span class="micon fa fa-users"></span
                         ><span class="mtext">Tenant Section</span>
@@ -27,7 +40,7 @@
                         <li><a class="<?php echo $ams->getActiveMenu('tenants', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/staff/tenants.php' ?>">Tenant Management</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" hidden="">
                     <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('rooms', 1) ?>">
                         <span class="micon fa fa-home"></span
                         ><span class="mtext">Room Section</span>

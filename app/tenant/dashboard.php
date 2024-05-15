@@ -31,7 +31,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark"><?php echo 'P' . $apm->get_TenantRentBill($_SESSION['userId']) ?></div>
+                                    <div class="weight-700 font-24 text-dark"><?php echo $apm->get_TenantBill($_SESSION['userId'], 'RENT') ?></div>
                                     <div class="font-14 text-secondary weight-500">
                                         Rent Bill
                                     </div>
@@ -48,7 +48,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">P518</div>
+                                    <div class="weight-700 font-24 text-dark"><?php echo $apm->get_TenantBill($_SESSION['userId'], 'WATER') ?></div>
                                     <div class="font-14 text-secondary weight-500">
                                         Water Bill</div>
                                 </div>
@@ -64,7 +64,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">P1,653</div>
+                                    <div class="weight-700 font-24 text-dark"><?php echo $apm->get_TenantBill($_SESSION['userId'], 'ELECTRICITY') ?></div>
                                     <div class="">Electricity Bill</div>
                                 </div>
                                 <div class="widget-icon">

@@ -108,6 +108,27 @@
             return $data;
         }
 
+        public function get_TenantBill($tenantId, $billType = 'RENT')
+        {
+            $amountDue = 0;
+            $conn = $this->conn();
+
+            $sql = "SELECT id FROM rooms WHERE assignedTo ='" . $tenantId . "'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $roomId = $result->fetch_assoc()['id'];
+
+                $sql1 = "SELECT amountDue FROM balances WHERE roomId ='" . $roomId . "' AND billType='" . $billType . "'";
+                $result1 = $conn->query($sql1);
+                if($result1->num_rows > 0) {
+                    $amountDue = $result1->fetch_assoc()['amountDue'];
+                }
+            }
+
+            $conn->close();
+            return 'P' . number_format(pow($amountDue, 1), 2);
+        }
+
         public function get_TenantComplaint($tenantId)
         {
             $conn = $this->conn();

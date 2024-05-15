@@ -116,6 +116,32 @@
             });
         });
 
+        $('form.bill-add-form').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser
+            var form = $(this);
+            var data = {
+                roomId: form.serializeArray()[0]['value'],
+                amountDue: parseInt(form.serializeArray()[1]['value']),
+                dueDate: form.serializeArray()[2]['value'],
+                billType: form.serializeArray()[3]['value']
+            };
+            console.log(data);
+            $.ajax({
+                type: form.attr('method'),
+                url: "<?php echo $config['SERVER_HOST'] . '/balance' ?>",
+                //data: form.serialize(),
+                data: data,
+                dataType: "json",
+            }).done(function (data) {
+                console.log(data);
+                form[0].reset();
+                $('#error-handler').html('<p class="success">Successfully added.</p>');
+            }).fail(function (err) {
+                console.log(err);
+                $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            });
+        });
+
         $('#dt').DataTable({
             'pageLength': 10,
             'bLengthChange': false,
