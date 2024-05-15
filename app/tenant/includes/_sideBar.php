@@ -23,7 +23,13 @@
                         ><span class="mtext">Bills</span>
                     </a>
                 </li>
-                <li class="dropdown">
+                <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>" class="dropdown-toggle no-arrow <?php echo $ams->getActiveMenu('complaints', 1) ?>">
+                        <span class="micon bi bi-receipt-cutoff"></span
+                        ><span class="mtext">Complaints</span>
+                    </a>
+                </li>
+                <li class="dropdown" hidden="">
                     <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('complaints', 1) ?>">
                         <span class="micon bi bi-list"></span
                         ><span class="mtext">Complain Section</span>
