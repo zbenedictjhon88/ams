@@ -5,7 +5,7 @@
         <?php if($apm->get_TenantNotif($_SESSION['userId'])): ?>
                 <div class="menu-icon fa fa-bell-slash-o"></div>
             <?php else: ?>
-                <div class="menu-icon fa fa-bell-o">
+                <div class="menu-icon fa fa-bell-o text-red">
                     <sub><i class="fa fa-exclamation"></i></sub>
                 </div>
         <?php endif; ?>

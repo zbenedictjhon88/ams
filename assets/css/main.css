@@ -182,3 +182,7 @@
     background-position: right;
     /*filter: hue-rotate(90deg);*/
 }
+
+.text-red {
+    color: red;
+}
