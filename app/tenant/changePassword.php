@@ -48,20 +48,20 @@
 
                                         <label class="required">Current Password:</label>
                                         <div class="input-group custom">
-                                            <input type="password" class="form-control form-control-lg" name="currentPassword" id="currentPassword" required=""> 
+                                            <input onkeyup="checkPasswordStrength(this.value)" type="password" class="form-control form-control-lg" name="currentPassword" id="currentPassword" required=""> 
                                             <span onclick="showPassword('currentPassword');" class="input-group-text"><i class="dw dw-eye"></i></span>
                                         </div>
 
-                                        <label class="required">New Password:</label>
+                                        <label class="required">New Password: <span id="passwordStatus"></span></label>
                                         <div class="input-group custom">
-                                            <input type="password" class="form-control form-control-lg" name="newPassword" id="newPassword" required=""> 
+                                            <input onkeyup="checkPasswordStrength(this.value)" type="password" class="form-control form-control-lg" name="newPassword" id="newPassword" required=""> 
                                             <span onclick="showPassword('newPassword');" class="input-group-text"><i class="dw dw-eye"></i></span>
                                         </div>
 
 
                                         <label class="required">Confirm Password:</label>
                                         <div class="input-group custom">
-                                            <input type="password" class="form-control form-control-lg" name="confirmPassword" id="confirmPassword" required=""> 
+                                            <input onkeyup="checkPasswordStrength(this.value)" type="password" class="form-control form-control-lg" id="confirmPassword" required=""> 
                                             <span onclick="showPassword('confirmPassword');" class="input-group-text"><i class="dw dw-eye"></i></span>
                                         </div>
                                     </fieldset>

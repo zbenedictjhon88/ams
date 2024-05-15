@@ -46,7 +46,7 @@
                                             <tr>
                                                 <th>Subject</th>
                                                 <th>Description</th>
-                                                <th>Action Taken</th>
+                                                <th>Feedback</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

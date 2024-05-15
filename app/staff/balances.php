@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
-                                <a href="<?php echo $config['BASED_URL'] . '/app/staff/addBills.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Create Invoice</a>
+                                <a href="<?php echo $config['BASED_URL'] . '/app/staff/addBills.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Create Bill</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
                                         <thead>

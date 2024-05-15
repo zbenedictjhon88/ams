@@ -24,13 +24,13 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Create Invoice</h4>
+                                <h4>Create Bill</h4>
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Create Invoice
+                                        Create Bill
                                     </li>
                                 </ol>
                             </nav>
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <form class="bill-add-form" method="post" action="#">
-                                    <h1>Create Invoice</h1><br>
+                                    <h1>Create Bill</h1><br>
 
                                     <div id="error-handler"></div>
 

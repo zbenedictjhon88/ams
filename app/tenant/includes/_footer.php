@@ -75,6 +75,7 @@
             }).done(function (data) {
                 console.log(data);
                 form[0].reset();
+                $('#passwordStatus').text('');
                 $('#error-handler').html('<p class="success">Password successfully updated.</p>');
             }).fail(function (err) {
                 console.log(err);
@@ -187,6 +188,40 @@
         } else {
             $("#" + elementId).attr("type", "password");
         }
+    }
+    
+    function checkPasswordStrength(password) {
+
+        var passwordStatus = "(weak)";
+
+        // Min and max length for password
+        var minLength = 8;
+        var maxLength = 20;
+
+        // Check length
+        if (password.length < minLength || password.length > maxLength) {
+            passwordStatus = "(weak)";
+            $('#passwordStatus').addClass("font-danger");
+        }
+
+
+        var uppercaseRegex = /[A-Z]/;
+        var lowercaseRegex = /[a-z]/;
+        var numberRegex = /[0-9]/;
+        var specialCharRegex = /[^A-Za-z0-9]/;
+
+        if (uppercaseRegex.test(password) && lowercaseRegex.test(password) && numberRegex.test(password) && specialCharRegex.test(password)) {
+            passwordStatus = "(strong)";
+            $('#passwordStatus').addClass("font-success");
+        } else if ((uppercaseRegex.test(password) && lowercaseRegex.test(password)) || (uppercaseRegex.test(password) && numberRegex.test(password)) || (uppercaseRegex.test(password) && specialCharRegex.test(password)) || (lowercaseRegex.test(password) && numberRegex.test(password)) || (lowercaseRegex.test(password) && specialCharRegex.test(password)) || (numberRegex.test(password) && specialCharRegex.test(password))) {
+            passwordStatus = "(medium)";
+            $('#passwordStatus').addClass("font-info");
+        } else {
+            passwordStatus = "(weak)";
+            $('#passwordStatus').addClass("font-danger");
+        }
+
+        $('#passwordStatus').text(passwordStatus);
     }
 </script>
 
