@@ -45,7 +45,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Room No</th>
-                                                <th>Amopunt Due</th>
+                                                <th>Amount Due</th>
                                                 <th>Due Date</th>
                                                 <th>Status</th>
                                                 <th>Payment</th>

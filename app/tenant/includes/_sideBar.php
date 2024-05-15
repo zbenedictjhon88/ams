@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/bills.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "bills" ? "active" : "" ?>">
+                    <a href="<?php echo $config['BASED_URL'] . '/app/tenant/bills.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "bills" ? "active" : "" ?>">
                         <span class="micon bi bi-receipt-cutoff"></span
                         ><span class="mtext">Bills</span>
                     </a>

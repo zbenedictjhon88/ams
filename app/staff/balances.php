@@ -45,8 +45,8 @@
                                             <tr>
                                                 <th>Tenant Name</th>
                                                 <th>Room No</th>
-                                                <th>Amopunt Due</th>
-                                                <th>Due DAte</th>
+                                                <th>Amount Due</th>
+                                                <th>Due Date</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
