@@ -51,6 +51,7 @@
                                                 <th>Bill Type</th>
                                                 <th>Status</th>
                                                 <th>Payment</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -78,6 +79,9 @@
                                                     . '<td>' . $balanceData[$i]['billType'] . '</td>'
                                                     . '<td>' . $isPaid . '</td>'
                                                     . '<td>' . $action . '</td>'
+                                                    . '<td>'
+                                                    . '<a id="trash" class="btn btn-danger btn-sm" href="' . $config['SERVER_HOST'] . '/balance/' . $balanceData[$i]['id'] . '"><i class="fa fa-trash"></i></a>'
+                                                    . '</td>'
                                                     . '</tr>';
                                                 }
                                             ?>

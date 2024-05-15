@@ -41,6 +41,22 @@
             $conn->close();
         }
 
+        public function get_TotalComplaint()
+        {
+            $conn = $this->conn();
+
+            $sql = "SELECT COUNT(*) AS total FROM complaints";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return $row['total'];
+            } else {
+                echo 0;
+            }
+
+            $conn->close();
+        }
+
         public function get_TotalAvailableRoom()
         {
             $conn = $this->conn();
@@ -165,6 +181,24 @@
 
             $conn->close();
             return $data;
+        }
+
+        public function get_RoomWithTenant($roomId)
+        {
+            $status = false;
+            $conn = $this->conn();
+
+            $sql = "SELECT assignedTo AS total FROM rooms WHERE id ='" . $roomId . "'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['total'];
+                if($row != null) {
+                    $status = true;
+                }
+            }
+
+            $conn->close();
+            return $status;
         }
 
         public function addFeedback($data)

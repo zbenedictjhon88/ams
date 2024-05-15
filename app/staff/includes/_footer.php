@@ -172,6 +172,26 @@
                 });
             }
         })
+        
+        $('a#trash').click(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser;
+            if (confirm("Are you sure you want to delete?")) {
+                console.log(this.href);
+                $.ajax({
+                    type: 'DELETE',
+                    url: this.href,
+                }).done(function (data) {
+                    console.log(data);
+                    $('#message-alert').html('<p class="success">Record successfully deleted!</p>');
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }).fail(function (err) {
+                    console.log(err);
+                    console.log('err');
+                });
+            }
+        })
 
         $('a#payment').click(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser;

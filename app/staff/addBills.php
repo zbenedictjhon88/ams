@@ -52,7 +52,12 @@
                                                 $responseRoom = file_get_contents($apiUrlRoom);
                                                 $dataRoom = json_decode($responseRoom, true);
                                                 for($i = 0; $i < count($dataRoom); $i++) {
-                                                    echo '<option value="' . $dataRoom[$i]['id'] . '">' . $dataRoom[$i]['roomCode'] . '</option>';
+                                                    $apm = new APM();
+                                                    $withTenant = $apm->get_RoomWithTenant($dataRoom[$i]['id']);
+
+                                                    if($withTenant) {
+                                                        echo '<option value="' . $dataRoom[$i]['id'] . '">' . $dataRoom[$i]['roomCode'] . '</option>';
+                                                    }
                                                 }
                                             ?>
                                         </select>

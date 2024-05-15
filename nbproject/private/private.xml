@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/laragon/www/ams/app/staff/updateTenant.php</file>
             <file>file:/C:/laragon/www/ams/app/staff/includes/_footer.php</file>
-            <file>file:/C:/laragon/www/ams/app/staff/updateComplaint.php</file>
-            <file>file:/C:/laragon/www/ams/app/staff/includes/_sideBar.php</file>
-            <file>file:/C:/laragon/www/ams/app/staff/complaints.php</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/bills.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/dashboard.php</file>
+            <file>file:/C:/laragon/www/ams/login.php</file>
+            <file>file:/C:/laragon/www/ams/contactUs.php</file>
+            <file>file:/C:/laragon/www/ams/config.php</file>
+            <file>file:/C:/laragon/www/ams/_footer.php</file>
             <file>file:/C:/laragon/www/ams/api.php</file>
+            <file>file:/C:/laragon/www/ams/forgotPassword.php</file>
+            <file>file:/C:/laragon/www/ams/resetPassword.php</file>
+            <file>file:/C:/laragon/www/ams/register.php</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/includes/_header.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/includes/_sideBar.php</file>
+            <file>file:/C:/laragon/www/ams/assets/css/main.css</file>
+            <file>file:/C:/laragon/www/ams/index.php</file>
+            <file>file:/C:/laragon/www/ams/app/staff/addBills.php</file>
+            <file>file:/C:/laragon/www/ams/app/tenant/includes/_sideBar.php</file>
         </group>
     </open-files>
 </project-private>
