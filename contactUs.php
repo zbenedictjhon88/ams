@@ -10,39 +10,44 @@
         </div>
 
         <!-- about section -->
-        <section class="contact_section layout_padding-top">
+         <section class="info_section ">
             <div class="container">
-                <div class="heading_container">
-                    <h2>
-                        Get In Touch
-                    </h2>
-                </div>
-            </div>
-            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-md-5 " style="margin:auto;">
-                        <div class="form_container">
-                            
-                            <div id="message-alert"></div>
-
-                            <form class="feedback-form" action="#" method="post" autocomplete="off">
-                                <input type="hidden" name="feedback" value="feedback"  />
-                                <div>
-                                    <input type="text" name="name" placeholder="Name" required="" />
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <h5>
+                                About Apartment
+                            </h5>
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/phone.png" width="12px" alt="">
                                 </div>
-                                <div>
-                                    <input type="email" name="email" placeholder="Email" required="" />
+                                <p>
+                                    +639564193277 
+                                </p>
+                            </div>
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/mail.png" width="18px" alt="">
                                 </div>
-                                <div>
-                                    <input type="text" name="content" class="message-box" placeholder="Message" required="" />
-                                </div>
-                                <div class="d-flex ">
-                                    <input type="submit" value="Send" />
-                                </div>
-                            </form>
+                                <p>
+                                    azarconaeron@gmail.com
+                                </p>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="col-md-9">
+                        <div class="info_form ">
+                            <h5>
+                                Social Media
+                            </h5>
+                            <div class="social_box">
+                                <a href="" target="_blank">
+                                    <img src="images/fb.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

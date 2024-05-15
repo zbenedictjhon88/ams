@@ -59,24 +59,25 @@
                                                 $balanceData = json_decode($balanceResponse, true);
 
                                                 for($i = 0; $i < count($balanceData); $i++) {
+                                                    if($balanceData[$i]['tenantId'] == $_SESSION['userId']) {
+                                                        $roomUrl = $config['SERVER_HOST'] . '/rooms/' . $balanceData[$i]['roomId'];
+                                                        $roomResponse = file_get_contents($roomUrl);
+                                                        $roomData = json_decode($roomResponse, true);
 
-                                                    $roomUrl = $config['SERVER_HOST'] . '/rooms/' . $balanceData[$i]['roomId'];
-                                                    $roomResponse = file_get_contents($roomUrl);
-                                                    $roomData = json_decode($roomResponse, true);
+                                                        $isPaid = $balanceData[$i]['isPaid'] == 0 ? 'Unpaid' : 'Paid';
+                                                        $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-success btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money fa-fw"></i>Unpaid</a>';
 
-                                                    $isPaid = $balanceData[$i]['isPaid'] == 0 ? 'Unpaid' : 'Paid';
-                                                    $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-success btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money fa-fw"></i>Unpaid</a>';
+                                                        $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $balanceData[$i]['dueDate']);
 
-                                                    $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $balanceData[$i]['dueDate']);
-
-                                                    echo '<tr>'
-                                                    . '<td>' . $roomData['roomCode'] . '</td>'
-                                                    . '<td>P ' . number_format(pow($balanceData[$i]['amountDue'], 1), 2) . '</td>'
-                                                    . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
-                                                    . '<td>' . $balanceData[$i]['billType'] . '</td>'
-                                                    . '<td>' . $isPaid . '</td>'
+                                                        echo '<tr>'
+                                                        . '<td>' . $roomData['roomCode'] . '</td>'
+                                                        . '<td>P ' . number_format(pow($balanceData[$i]['amountDue'], 1), 2) . '</td>'
+                                                        . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
+                                                        . '<td>' . $balanceData[$i]['billType'] . '</td>'
+                                                        . '<td>' . $isPaid . '</td>'
 //                                                    . '<td>' . $action . '</td>'
-                                                    . '</tr>';
+                                                        . '</tr>';
+                                                    }
                                                 }
                                             ?>
                                         </tbody>

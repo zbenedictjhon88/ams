@@ -1,6 +1,14 @@
 <div class="header">
+    <?php $apm = new APM(); ?>
     <div class="header-left">
         <div class="menu-icon bi bi-list"></div>
+        <?php if($apm->get_TenantNotif($_SESSION['userId'])): ?>
+                <div class="menu-icon fa fa-bell-slash-o"></div>
+            <?php else: ?>
+                <div class="menu-icon fa fa-bell-o">
+                    <sub><i class="fa fa-exclamation"></i></sub>
+                </div>
+        <?php endif; ?>
     </div>
     <div class="header-right">
         <div class="user-info-dropdown">

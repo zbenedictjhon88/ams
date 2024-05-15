@@ -3,7 +3,7 @@
     <head>
         <?php include '_header.php'; ?>
     </head>
-    <body class="login-page">
+    <body class="login-page hero-bg" style="background-image: url(./images/hero-bg.jpg);">
         <div class="login-header box-shadow">
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="brand-logo">
@@ -18,9 +18,7 @@
             >
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="<?php echo $config['BASED_URL'] ?>/assets/img/forgot-password.png" alt="" />
-                    </div>
+
                     <div class="col-md-6">
                         <div class="login-box bg-white box-shadow border-radius-10">
                             <div class="login-title">
@@ -93,11 +91,14 @@
                             </form>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                       <!--<img src="<?php echo $config['BASED_URL'] ?>/assets/img/forgot-password.png" alt="" />-->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <?php include '_footer.php'; ?>
-</body>
+
+        <?php include '_footer.php'; ?>
+    </body>
 </html>
