@@ -36,8 +36,8 @@
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
-        
-         $('form.staff-edit-form').submit(function (e) {
+
+        $('form.staff-edit-form').submit(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser
 
             var tenantId = "<?php echo isset($_GET['tenantId']) ? $_GET['tenantId'] : null; ?>";
@@ -54,6 +54,26 @@
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
+        
+         $('a#payment').click(function (e) {
+            e.preventDefault(); // Prevent the form from submitting via the browser;
+            if (confirm("Are you sure you want to delete?")) {
+                console.log(this.href);
+                $.ajax({
+                    type: 'PATCH',
+                    url: this.href,
+                }).done(function (data) {
+                    console.log(data);
+                    $('#message-alert').html('<p class="success">Thank you for your payment! Your transaction was successful.</p>');
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }).fail(function (err) {
+                    console.log(err);
+                    console.log('err');
+                });
+            }
+        })
 
         $('#dt').DataTable({
             'pageLength': 10,
