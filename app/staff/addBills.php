@@ -63,7 +63,7 @@
                                         <label class="required"><span></span>Due Date:</label>
                                         <input type="date" name="dueDate" required="">
 
-                                        <label class="required"><span></span>Room Type:</label>
+                                        <label class="required"><span></span>Bill Type:</label>
                                         <select name="billType" class="form-control" required="">
                                             <option value="ELECTRICITY">ELECTRICITY</option>
                                             <option value="WATER">WATER</option>

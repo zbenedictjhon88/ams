@@ -110,10 +110,10 @@
         <section class="info_section ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="info_contact">
                             <h5>
-                                About Apartment
+                                About
                             </h5>
                             <div>
                                 <div class="img-box">
@@ -131,17 +131,35 @@
                                     azarconaeron@gmail.com
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="info_form ">
-                            <h5>
-                                Social Media
-                            </h5>
-                            <div class="social_box">
-                                <a href="" target="_blank">
-                                    <img src="images/fb.png" alt="">
-                                </a>
+                            <div>
+                                <div class="img-box">
+                                    <a href="https://www.facebook.com/profile.php?id=100052395155661" target="_blank">
+                                        <img src="images/fb.png" alt="">
+                                    </a>
+                                </div>
+                                <p>
+                                    Aeron Azarcon
+                                </p>
+                            </div>
+                            <div>
+                                <div class="img-box">
+                                    <a href="https://www.facebook.com/edgarfitzgerald97" target="_blank">
+                                        <img src="images/fb.png" alt="">
+                                    </a>
+                                </div>
+                                <p>
+                                    Edgar Fitzgerald Cruz
+                                </p>
+                            </div>
+                            <div>
+                                <div class="img-box">
+                                    <a href="https://www.facebook.com/jensel.boje.30" target="_blank">
+                                        <img src="images/fb.png" alt="">
+                                    </a>
+                                </div>
+                                <p>
+                                    Jensel John Bayan Boje
+                                </p>
                             </div>
                         </div>
                     </div>
