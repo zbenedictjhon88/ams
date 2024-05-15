@@ -62,7 +62,7 @@
                                                     $roomResponse = file_get_contents($roomUrl);
                                                     $roomData = json_decode($roomResponse, true);
 
-                                                    $isPaid = $balanceData[$i]['isPaid'] == 0 ? '' : 'Paid';
+                                                    $isPaid = $balanceData[$i]['isPaid'] == 0 ? 'Unpaid' : 'Paid';
 
                                                     $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $balanceData[$i]['dueDate']);
 

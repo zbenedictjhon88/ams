@@ -63,8 +63,8 @@
                                                     $roomResponse = file_get_contents($roomUrl);
                                                     $roomData = json_decode($roomResponse, true);
 
-                                                    $isPaid = $balanceData[$i]['isPaid'] == 0 ? '' : 'Paid';
-                                                    $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-success btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money"></i></a>';
+                                                    $isPaid = $balanceData[$i]['isPaid'] == 0 ? 'Unpaid' : 'Paid';
+                                                    $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-success btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money fa-fw"></i>Unpaid</a>';
 
                                                     $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $balanceData[$i]['dueDate']);
 
