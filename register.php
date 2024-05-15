@@ -19,12 +19,12 @@
                     <div class="col-md-6 col-lg-5">
                         <div class="login-box bg-white box-shadow border-radius-10">
                             <div class="login-title">
-                                <h2 class="text-center text-primary">Sign up</h2>
+                                <h2 class="text-center text-primary">Register</h2>
                             </div>
                             <form class="staff-register-form" action="#" method="post">
                                 <div class="admin_tenant">
-                                    <a href="register.php" class="admin">Sign up</a>
-                                    <a href="login.php" class="tenant">Sign in</a>
+                                    <a href="register.php" class="admin">Register</a>
+                                    <a href="login.php" class="tenant">Login</a>
                                 </div>
 
                                 <div id="error-handler"></div>
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="input-group mb-0">
-                                            <button type="submit" class="login_btn">Sign up</button>
+                                            <button type="submit" class="login_btn">Register</button>
                                         </div>
                                     </div>
                                 </div>
