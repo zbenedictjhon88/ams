@@ -41,6 +41,12 @@
                         </div>
                     </div>
                     <div class="pd-20 card-box height-100-p">
+                        <?php
+                            $apiUrl = $config['BASED_URL'] . '/api.php?staffId=' . $_SESSION['userId'];
+                            $response = file_get_contents($apiUrl);
+                            $data = json_decode($response, true);
+                            print_r($data);
+                        ?>
                         <div class="profile-photo">
                             <img
                                 src="<?php echo $config['BASED_URL'] ?>/vendors/images/photo1.jpg"
@@ -48,13 +54,13 @@
                                 class="avatar-photo"
                                 />
                         </div>
-                        <h5 class="text-center h5 mb-0"><p id="userName"></p></h5>
+                        <h5 class="text-center h5 mb-0"><p id="userName"><?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName'] ?></p></h5>
                         <div class="profile-info">
                             <h5 class="mb-20 h5 text-blue">Contact Information</h5>
                             <ul>
                                 <li>
                                     <span>Email Address:</span>
-                                    <p id="userEmail"></p>
+                                    <p id="userEmail"><?php echo $_SESSION['userEmail']; ?></p>
                                 </li>
                             </ul>
                         </div>

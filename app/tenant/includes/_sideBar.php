@@ -26,11 +26,11 @@
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('complaints', 1) ?>">
                         <span class="micon bi bi-list"></span
-                        ><span class="mtext">Complaint Section</span>
+                        ><span class="mtext">Complain Section</span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="<?php echo $ams->getActiveMenu('addComplain') ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>">Compose Complaint</a></li>
-                        <li><a class="<?php echo $ams->getActiveMenu('complaints', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>">Complaints List</a></li>
+                        <!--<li><a class="<?php echo $ams->getActiveMenu('addComplain') ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>">Compose</a></li>-->
+                        <li><a class="<?php echo $ams->getActiveMenu('complaints', 1) ?>" href="<?php echo $config['BASED_URL'] . '/app/tenant/complaints.php' ?>">Complaints</a></li>
                     </ul>
                 </li>
             </ul>

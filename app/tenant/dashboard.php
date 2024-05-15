@@ -24,14 +24,17 @@
                     <h2 class="h3 mb-0">Apartment Overview</h2>
                 </div>
 
+                <?php $apm = new APM(); ?>
+
                 <div class="row pb-10">
                     <div class="col-xl-3 col-lg-3 col-md-6 mb-20">
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">P7,500</div>
+                                    <div class="weight-700 font-24 text-dark"><?php echo 'P' . $apm->get_TenantRentBill($_SESSION['userId']) ?></div>
                                     <div class="font-14 text-secondary weight-500">
-                                        Rent Bill</div>
+                                        Rent Bill
+                                    </div>
                                 </div>
                                 <div class="widget-icon">
                                     <div class="icon" data-color="#ff5b5b">
@@ -76,7 +79,7 @@
                         <div class="card-box height-100-p widget-style3">
                             <div class="d-flex flex-wrap">
                                 <div class="widget-data">
-                                    <div class="weight-700 font-24 text-dark">0</div>
+                                    <div class="weight-700 font-24 text-dark"><?php echo $apm->get_TenantComplaint($_SESSION['userId']) ?></div>
                                     <div class="">Complaint</div>
                                 </div>
                                 <div class="widget-icon">

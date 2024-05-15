@@ -39,13 +39,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                 <a href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Compose</a>
                                 <div class="table-responsive-sm">
                                     <table id="dt" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Subject/Issue</th>
                                                 <th>Description/Impact</th>
-                                                <th>Action Taken</th>
+                                                <!--<th>Action Taken</th>-->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

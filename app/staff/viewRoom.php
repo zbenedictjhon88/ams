@@ -67,6 +67,8 @@
                                         </div>
                                     <?php endif; ?>
 
+                                <div id="message-alert"></div>
+
                                 <table class="table table-bordered table-hover">
 
                                     <tbody>

@@ -16,9 +16,19 @@
                 data: form.serialize(),
                 dataType: "json",
             }).done(function (data) {
+                setSession('userId', data['user']['id']);
+                setSession('userEmail', data['user']['email']);
                 localStorage.setItem('staff', JSON.stringify(data));
-                window.location.href = "<?php echo $config['BASED_URL'] . '/app/staff/dashboard.php' ?>";
+
+                $('#error-handler').html('<p class="success">Sucessfully login.</p>');
+
+                setTimeout(function () {
+                    window.location.href = "<?php echo $config['BASED_URL'] . '/app/staff/dashboard.php' ?>";
+                }, 2000);
+
+
             }).fail(function (err) {
+                console.log(err);
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
         });
@@ -32,8 +42,17 @@
                 data: form.serialize(),
                 dataType: "json",
             }).done(function (data) {
+                setSession('userId', data['user']['id']);
+                setSession('userEmail', data['user']['email']);
                 localStorage.setItem('tenant', JSON.stringify(data));
-                window.location.href = "<?php echo $config['BASED_URL'] . '/app/tenant/dashboard.php' ?>";
+
+                $('#error-handler').html('<p class="success">Sucessfully login.</p>');
+
+                setTimeout(function () {
+                    window.location.href = "<?php echo $config['BASED_URL'] . '/app/tenant/dashboard.php' ?>";
+                }, 2000);
+
+
             }).fail(function (err) {
                 $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
             });
@@ -82,6 +101,22 @@
             });
         });
     });
+
+    function setSession(key, value) {
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo $config['BASED_URL'] . '/config.php' ?>",
+            data: {
+                session: 'session',
+                session_key: key,
+                session_value: value
+            },
+        }).done(function (data) {
+            console.log(data);
+        }).fail(function (err) {
+            console.log(err);
+        });
+    }
 
     function showPassword(elementId) {
         var currentType = $("#" + elementId).attr("type");

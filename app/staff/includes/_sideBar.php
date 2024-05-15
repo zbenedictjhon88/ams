@@ -13,7 +13,7 @@
             <ul id="accordion-menu">
                 <li>
                     <a href="<?php echo $config['BASED_URL'] . '/app/staff/dashboard.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "dashboard" ? "active" : "" ?>">
-                        <span class="micon bi bi-list"></span
+                        <span class="micon fa fa-list"></span
                         ><span class="mtext">Dashboard</span>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle <?php echo $ams->getActiveMenu('rooms', 1) ?>">
-                        <span class="micon bi bi-house"></span
+                        <span class="micon fa fa-home"></span
                         ><span class="mtext">Room Section</span>
                     </a>
                     <ul class="submenu">
@@ -39,14 +39,14 @@
                 </li>
                 <li>
                     <a href="<?php echo $config['BASED_URL'] . '/app/staff/complaints.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "complaints" ? "active" : "" ?>">
-                        <span class="micon bi bi-receipt-cutoff"></span>
-                        <span class="mtext">Complaints</span>
+                        <span class="micon fa fa-file-text"></span>
+                        <span class="mtext">Complaint List</span>
                     </a>
                 </li>
-                <li hidden>
-                    <a href="invoice.php" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-receipt-cutoff"></span
-                        ><span class="mtext">Invoice</span>
+                <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/balances.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "balances" ? "active" : "" ?>">
+                        <span class="micon fa fa-money"></span>
+                        <span class="mtext">Balances</span>
                     </a>
                 </li>
 

@@ -196,8 +196,10 @@
             },
             dataType: "json",
         }).done(function (data) {
-            console.log(data);
-            $('#error-handler').html('<p class="success">Successfully updated.</p>');
+            $('#message-alert').html('<p class="success">Tenant successfully assigned.</p>');
+//            setTimeout(function () {
+//                location.reload();
+//            }, 2000);
         }).fail(function (err) {
             console.log(err);
             $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
@@ -213,10 +215,13 @@
             },
             dataType: "json",
         }).done(function (data) {
-            location.reload();
+            $('#message-alert').html('<p class="success">Tenant removed successfully.</p>');
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
         }).fail(function (err) {
             console.log(err);
-            $('#error-handler').html('<p class="error">' + err['responseJSON']['message'] + '</p>');
+            $('#message-alert').html('<p class="error">Please try again.</p>');
         });
     }
 
@@ -270,10 +275,16 @@
         $('#userEmail').text(data['user']['email']);
         console.log(data);
     }
-    getUserInfo();
+    //getUserInfo();
 
     function complaints() {
+
+        // Destroy existing DataTable instance
         $('#dt').DataTable().destroy();
+
+        // Clear the table body
+        $('#complaintsList').empty();
+
         $.ajax({
             type: 'POST',
             url: "<?php echo $config['BASED_URL'] . '/api.php' ?>",
@@ -284,16 +295,54 @@
             dataType: 'json'
         }).done(function (data) {
             console.log(data);
+
+            // Initialize an array to hold the rows
+            var rows = [];
+
             for (let i = 0; i < data.length; i++) {
-                $('#complaintsList').append('<tr>' +
-                        '<td>' + data[i]['subject'] + '</td>' +
-                        '<td>' + data[i]['description'] + '</td>' +
-                        '<td>' + data[i]['action_taken'] + '</td>' +
-                        '<td>' +
-                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
-                        '</td>' +
-                        '</tr>');
+                $.ajax({
+                    type: 'GET',
+                    url: "<?php echo $config['SERVER_HOST'] . '/tenants/' ?>" + data[i]['tenant_id'],
+                    dataType: 'json',
+                    async: false // Make this request synchronous
+                }).done(function (data1) {
+                    console.log(data1);
+
+                    // Push the row data to the rows array
+                    rows.push([
+                        data1['firstName'] + ' ' + data1['lastName'],
+                        data[i]['subject'],
+                        data[i]['description'],
+//                        data[i]['action_taken'],
+//                        '<a class="btn btn-success btn-sm" href="<?php echo $config['BASED_URL'] . '/app/staff/updateComplaint.php?complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-edit"></i></a> ' +
+                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> '
+
+                    ]);
+                }).fail(function (err) {
+                    console.log(err);
+                });
             }
+
+            // Append the rows to the table body
+            $('#complaintsList').append(
+                    rows.map(function (row) {
+                        return '<tr>' + row.map(function (cell) {
+                            return '<td>' + cell + '</td>';
+                        }).join('') + '</tr>';
+                    }).join('')
+                    );
+
+            // Reinitialize the DataTable
+            $('#dt').DataTable({
+                'pageLength': 10,
+                'bLengthChange': false,
+                'sorting': false,
+                'filter': true,
+                'sorting': true,
+                'autoWidth': true,
+                dom: 'Bfrtip',
+                retrieve: true,
+            });
         }).fail(function (err) {
             console.log(err);
         });

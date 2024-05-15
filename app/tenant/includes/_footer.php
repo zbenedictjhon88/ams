@@ -105,7 +105,7 @@
                 $('#complaintsList').append('<tr>' +
                         '<td>' + data[i]['subject'] + '</td>' +
                         '<td>' + data[i]['description'] + '</td>' +
-                        '<td>' + data[i]['action_taken'] + '</td>' +
+//                        '<td>' + data[i]['action_taken'] + '</td>' +
                         '<td>' +
                         '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=tenant&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
                         '</td>' +

@@ -43,9 +43,10 @@
                                     <table id="dt" class="table table-bordered">
                                         <thead>
                                             <tr>
+                                                 <th>Complainant</th>
                                                 <th>Subject/Issue</th>
                                                 <th>Description/Impact</th>
-                                                <th>Action Taken</th>
+                                                <!--<th>Action Taken</th>-->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

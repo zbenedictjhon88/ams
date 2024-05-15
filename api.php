@@ -5,7 +5,7 @@
     class APM
     {
 
-        private function conn()
+        public function conn()
         {
             $serverName = "localhost";
             $username = "root";
@@ -87,6 +87,42 @@
             }
 
             $conn->close();
+        }
+
+        public function get_TenantRentBill($tenantId)
+        {
+            $conn = $this->conn();
+
+            $sql = "SELECT ratePerMonth AS rentBill FROM rooms WHERE assignedTo ='" . $tenantId . "'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $data = $row['rentBill'];
+                $data = number_format(pow($data, 1), 2);
+            } else {
+                $data = 0;
+                $data = number_format(pow($data, 1), 2);
+            }
+
+            $conn->close();
+            return $data;
+        }
+        
+         public function get_TenantComplaint($tenantId)
+        {
+            $conn = $this->conn();
+
+            $sql = "SELECT COUNT(*) AS total FROM complaints WHERE tenant_id ='" . $tenantId . "'";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $data = $row['total'];
+            } else {
+                $data = 0;
+            }
+
+            $conn->close();
+            return $data;
         }
 
         public function addFeedback($data)
@@ -186,7 +222,7 @@
                 $getActiveFileMenu = basename("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ".php");
                 if($menu == $getActiveFileMenu) {
                     echo "active";
-                } elseif(strstr($getActiveFileMenu, "viewComplain") || strstr($getActiveFileMenu, "updateComplain")) {
+                } elseif(strstr($getActiveFileMenu, "viewComplain") || strstr($getActiveFileMenu, "updateComplain") || strstr($getActiveFileMenu, "addComplain")) {
                     if($withManagement) {
                         echo 'active';
                     }
@@ -236,7 +272,8 @@
                         'id' => $row['id'],
                         'subject' => $row['subject'],
                         'description' => $row['description'],
-                        'action_taken' => $row['action_taken'] == null ? '' : $row['action_taken']
+                        'action_taken' => $row['action_taken'] == null ? '' : $row['action_taken'],
+                        'tenant_id' => $row['tenant_id'],
                     );
                     array_push($complaints, $complaint);
                 }
@@ -245,12 +282,10 @@
             echo json_encode($complaints);
         }
 
-        if(isset($_POST['userId']) && isset($_POST['userEmail'])) {
-            $_SESSION['userId'] = $_POST['userId'];
-            $_SESSION['userEmail'] = $_POST['userEmail'];
+        if(isset($_POST['session'])) {
+            $_SESSION[$_POST['session_key']] = $_POST['session_value'];
 
-            echo $_SESSION['userId'];
-            echo $_SESSION['userEmail'];
+            echo $_SESSION[$_POST['session_key']];
         }
     }
 
@@ -264,6 +299,7 @@
                 header('Location: ' . $config['BASED_URL'] . '/app/' . $_GET['user'] . '/complaints.php');
             }
         }
+       
     }
 
     
