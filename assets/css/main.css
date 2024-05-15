@@ -174,3 +174,11 @@
 .footer_card a{
     color: #5881D0;
 }
+
+.hero-bg{
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    /*filter: hue-rotate(90deg);*/
+}

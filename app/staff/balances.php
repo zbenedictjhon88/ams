@@ -64,7 +64,7 @@
                                                     $roomData = json_decode($roomResponse, true);
 
                                                     $isPaid = $balanceData[$i]['isPaid'] == 0 ? 'Unpaid' : 'Paid';
-                                                    $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-primary btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money"></i> Unpaid</a>';
+                                                    $action = $balanceData[$i]['isPaid'] == 1 ? '' : '<a id="payment" class="btn btn-primary btn-sm" href="' . $config['SERVER_HOST'] . '/balance/pay/' . $balanceData[$i]['id'] . '"><i class="fa fa-money"></i> Paid</a>';
 
                                                     $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s.u\Z', $balanceData[$i]['dueDate']);
 
@@ -74,7 +74,10 @@
                                                     . '<td>' . $balanceData[$i]['amountDue'] . '</td>'
                                                     . '<td>' . $dateTime->format('F j, Y, g:i A') . '</td>'
                                                     . '<td>' . $isPaid . '</td>'
-                                                    . '<td>' . $action . '</td>'
+                                                    . '<td>'
+                                                    . $action
+                                                    . 'asd'
+                                                    . '</td>'
                                                     . '</tr>';
                                                 }
                                             ?>

@@ -3,8 +3,8 @@
     <head>
         <?php include '_header.php'; ?>
     </head>
-    <body class="login-page">
-       <div class="login-header box-shadow">
+    <body class="login-page hero-bg" style="background-image: url(./images/hero-bg.jpg);">
+        <div class="login-header box-shadow">
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="brand-logo">
                     <a href="index.php">
@@ -16,9 +16,6 @@
         <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 col-lg-7">
-                        <img src="assets/img/login-page-img.png" alt="" />
-                    </div>
                     <div class="col-md-6 col-lg-5">
                         <div class="login-box bg-white box-shadow border-radius-10">
                             <div class="login-title">
@@ -29,7 +26,7 @@
                                     <a href="login.php" class="admin">Admin</a>
                                     <a href="tenantLogin.php" class="tenant">Tenant</a>
                                 </div>
-                                
+
                                 <div id="error-handler"></div>
 
                                 <div class="input-group custom">
@@ -60,6 +57,9 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <!--<img src="assets/img/login-page-img.png" alt="" />-->
                     </div>
                 </div>
             </div>

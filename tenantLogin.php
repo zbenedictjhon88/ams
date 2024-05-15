@@ -3,12 +3,13 @@
     <head>
         <?php include '_header.php'; ?>
     </head>
-    <body class="login-page">
+    <body class="login-page hero-bg" style="background-image: url(./images/hero-bg.jpg);">
         <div class="login-header box-shadow">
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="brand-logo">
                     <a href="index.php">
                         <img src="<?php echo $config['BASED_URL'] ?>/assets/img/AMS.png" alt="" />
+
                     </a>
                 </div>
             </div>
@@ -16,9 +17,6 @@
         <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 col-lg-7">
-                        <img src="assets/img/login-page-img.png" alt="" />
-                    </div>
                     <div class="col-md-6 col-lg-5">
                         <div class="login-box bg-white box-shadow border-radius-10">
                             <div class="login-title">
@@ -65,6 +63,9 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <!--<img src="assets/img/login-page-img.png" alt="" />-->
                     </div>
                 </div>
             </div>
