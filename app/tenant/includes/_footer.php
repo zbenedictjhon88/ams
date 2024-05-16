@@ -98,7 +98,7 @@
                 console.log(err);
                 console.log('err');
             });
-        })
+        });
 
         $('#dt').DataTable({
             'pageLength': 10,
@@ -134,7 +134,7 @@
     getUserInfo();
 
     function complaints() {
-        $('#dt').DataTable().destroy();
+        //$('#dt').DataTable().destroy();
         let data = JSON.parse(localStorage.getItem('tenant'));
         $.ajax({
             type: 'POST',
@@ -152,10 +152,41 @@
                         '<td>' + data[i]['description'] + '</td>' +
                         '<td>' + data[i]['action_taken'] + '</td>' +
                         '<td>' +
-                        '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=tenant&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
+                        '<a id="trash" class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=tenant&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> ' +
                         '</td>' +
                         '</tr>');
             }
+
+            $('#dt-2').DataTable({
+                'pageLength': 10,
+                'bLengthChange': false,
+                'sorting': false,
+                'filter': true,
+                'sorting': true,
+                'autoWidth': true,
+                dom: 'Bfrtip',
+                retrieve: true,
+            });
+
+            $('a#trash').click(function (e) {
+                e.preventDefault(); // Prevent the form from submitting via the browser;
+                if (confirm("Are you sure you want to delete?")) {
+                    console.log(this.href);
+                    $.ajax({
+                        type: 'DELETE',
+                        url: this.href,
+                    }).done(function (data) {
+                        console.log(data);
+                        $('#message-alert').html('<p class="success">Record successfully deleted!</p>');
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    }).fail(function (err) {
+                        console.log(err);
+                        console.log('err');
+                    });
+                }
+            });
         }).fail(function (err) {
             console.log(err);
         });
@@ -189,7 +220,7 @@
             $("#" + elementId).attr("type", "password");
         }
     }
-    
+
     function checkPasswordStrength(password) {
 
         var passwordStatus = "(weak)";

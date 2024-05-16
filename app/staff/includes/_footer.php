@@ -171,8 +171,8 @@
                     console.log('err');
                 });
             }
-        })
-        
+        });
+
         $('a#trash').click(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser;
             if (confirm("Are you sure you want to delete?")) {
@@ -191,7 +191,7 @@
                     console.log('err');
                 });
             }
-        })
+        });
 
         $('a#payment').click(function (e) {
             e.preventDefault(); // Prevent the form from submitting via the browser;
@@ -208,7 +208,7 @@
                 console.log(err);
                 console.log('err');
             });
-        })
+        });
     });
 
     let rooms = localStorage.getItem('roomList') != null ? JSON.parse(localStorage.getItem('roomList')) : [];
@@ -361,7 +361,7 @@
     function complaints() {
 
         // Destroy existing DataTable instance
-        $('#dt').DataTable().destroy();
+        //$('#dt').DataTable().destroy();
 
         // Clear the table body
         $('#complaintsList').empty();
@@ -396,7 +396,7 @@
                         data[i]['description'],
                         data[i]['action_taken'],
                         '<a class="btn btn-success btn-sm" href="<?php echo $config['BASED_URL'] . '/app/staff/updateComplaint.php?complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-edit"></i></a> ' +
-                                '<a class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> '
+                                '<a id="trash" class="btn btn-danger btn-sm" href="<?php echo $config['BASED_URL'] . '/api.php?get=delete&user=staff&complaintId=' ?>' + data[i]['id'] + '"><i class="fa fa-trash"></i></a> '
 
                     ]);
                 }).fail(function (err) {
@@ -410,11 +410,10 @@
                         return '<tr>' + row.map(function (cell) {
                             return '<td>' + cell + '</td>';
                         }).join('') + '</tr>';
-                    }).join('')
-                    );
+                    }).join(''));
 
             // Reinitialize the DataTable
-            $('#dt').DataTable({
+            $('#dt-2').DataTable({
                 'pageLength': 10,
                 'bLengthChange': false,
                 'sorting': false,
@@ -423,6 +422,26 @@
                 'autoWidth': true,
                 dom: 'Bfrtip',
                 retrieve: true,
+            });
+
+            $('a#trash').click(function (e) {
+                e.preventDefault(); // Prevent the form from submitting via the browser;
+                if (confirm("Are you sure you want to delete?")) {
+                    console.log(this.href);
+                    $.ajax({
+                        type: 'DELETE',
+                        url: this.href,
+                    }).done(function (data) {
+                        console.log(data);
+                        $('#message-alert').html('<p class="success">Record successfully deleted!</p>');
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    }).fail(function (err) {
+                        console.log(err);
+                        console.log('err');
+                    });
+                }
             });
         }).fail(function (err) {
             console.log(err);

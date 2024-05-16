@@ -134,10 +134,14 @@
             if($result->num_rows > 0) {
                 $roomId = $result->fetch_assoc()['id'];
 
-                $sql1 = "SELECT amountDue FROM balances WHERE roomId ='" . $roomId . "' AND billType='" . $billType . "'";
+                $sql1 = "SELECT amountDue, isPaid FROM balances WHERE roomId ='" . $roomId . "' AND billType='" . $billType . "'";
                 $result1 = $conn->query($sql1);
                 if($result1->num_rows > 0) {
-                    $amountDue = $result1->fetch_assoc()['amountDue'];
+                    $row = $result1->fetch_assoc();
+                    $amountDue = $row['amountDue'];
+                    if($row['isPaid']) {
+                        $amountDue = 0;
+                    }
                 }
             }
 
@@ -409,7 +413,7 @@
             if($_GET['get'] == 'delete') {
                 $apm = new APM();
                 $apm->deleteComplain($_GET['complaintId']);
-                header('Location: ' . $config['BASED_URL'] . '/app/' . $_GET['user'] . '/complaints.php');
+                header('Location: ' . $config['BASED_URL'] . '/ams/app/' . $_GET['user'] . '/complaints.php');
             }
         }
 

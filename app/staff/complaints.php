@@ -39,8 +39,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
+                                <div id="message-alert"></div>
                                 <div class="table-responsive-sm">
-                                    <table id="dt" class="table table-bordered">
+                                    <table id="dt-2" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                  <th>Complainant</th>

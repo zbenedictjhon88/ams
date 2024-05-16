@@ -30,7 +30,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                       Complaints
+                                        Complaints
                                     </li>
                                 </ol>
                             </nav>
@@ -39,9 +39,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <br />
-                                 <a href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Compose</a>
+                                <div id="message-alert"></div>
+                                <a href="<?php echo $config['BASED_URL'] . '/app/tenant/addComplain.php' ?>" class="btn btn-primary btn-sm" style="float: right;">Compose</a>
                                 <div class="table-responsive-sm">
-                                    <table id="dt" class="table table-bordered">
+                                    <table id="dt-2" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Subject</th>
