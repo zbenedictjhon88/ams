@@ -51,17 +51,18 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/complaints.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "complaints" ? "active" : "" ?>">
-                        <span class="micon fa fa-file-text"></span>
-                        <span class="mtext">Complaint List</span>
-                    </a>
-                </li>
-                <li>
                     <a href="<?php echo $config['BASED_URL'] . '/app/staff/balances.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "balances" ? "active" : "" ?>">
                         <span class="micon fa fa-money"></span>
                         <span class="mtext">Balances</span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo $config['BASED_URL'] . '/app/staff/complaints.php' ?>" class="dropdown-toggle no-arrow <?php echo $config['ACTIVE_LINK'] == "complaints" ? "active" : "" ?>">
+                        <span class="micon fa fa-file-text"></span>
+                        <span class="mtext">Complaint List</span>
+                    </a>
+                </li>
+                
 
             </ul>
         </div>
